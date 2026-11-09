@@ -1,0 +1,12 @@
+Infinite Gold
+0
+CodeFreak/PS3UserCheat
+0 007A23F0 3B9AC9FF
+#
+Infinite Box
+0
+CodeFreak/PS3UserCheat
+0 0080D800 0000000A
+0 0080D804 0000000A
+0 0080D808 0000000A
+#

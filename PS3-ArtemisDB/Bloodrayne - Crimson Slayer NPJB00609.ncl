@@ -1,0 +1,28 @@
+Infinite Ammo
+0
+GuitarMan
+0 0006D2AC 30840000
+0 0006D44C 30630000
+#
+Max Score On Gain
+0
+GuitarMan
+0 000BE8FC 60000000
+#
+Invincibility
+0
+GuitarMan
+0 00067440 60000000
+#
+Unlock All Chapters + Concept Arts
+0
+GuitarMan
+0 001326F8 60000000
+0 0015B1F8 60000000
+#
+Unlock All Weapons
+0
+GuitarMan
+0 000602D8 48000054
+0 00071158 48000054
+#

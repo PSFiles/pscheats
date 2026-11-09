@@ -1,0 +1,13 @@
+# inFamous - Festival of Blood
+
+name: Infinite Electricity
+score NPUA80657 01.00: 75 1+ 0-
+author: Hiei-YYH
+mode: once
+w32 0015D190 EDAD002A working-val=EDAD0028:1
+
+name: Infinite Teleport + Fly
+author: Hiei-YYH
+mode: once
+w32 00AB43F0 4A000000
+w32 00AB43EC 4A000000

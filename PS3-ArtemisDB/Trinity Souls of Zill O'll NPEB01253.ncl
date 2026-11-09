@@ -1,0 +1,194 @@
+Memory Health Regeneration After Battle And Level Up
+0
+jgduff1
+0 36F893A8 000003E7
+#
+Memory Max Level + Hp + Mp + Atk + Def + Spr + Mgr On Kill
+0
+jgduff1
+0 00B5E124 00000046
+0 340CE4E0 00000046
+0 340CE4E4 00000046
+#
+ASM Max Level + Hp + Mp + Atk + Def + Spr + Mgr On Kill
+0
+jgduff1
+0 002789CC 91630034
+#
+Memory Max + Infinite Skills Points On Gain
+0
+jgduff1
+0 00B5E0EC 0000002E
+0 33E5512C 0000002E
+0 340DF3D0 0000002E
+0 340DF3D4 0000002E
+#
+ASM Max + Infinite Skills Points On Gain
+0
+jgduff1
+0 0027DA98 91630028
+#
+Memory Max + Infinite Gold In Shop
+0
+jgduff1
+0 00B5E0D8 000003E7
+0 33E54EE4 000003E7
+#
+ASM Max + Infinite Gold In Shop + Arena
+0
+jgduff1
+0 0027DC90 90030014
+#
+ASM Gold Never Increases Or Decreases
+0
+jgduff1
+0 00103038 60000000
+#
+Memory Infinite Items
+0
+jgduff1
+0 00B61A38 00000005
+#
+ASM Infinite Items
+0
+jgduff1
+0 002802E8 91230000
+#
+Memory Instant + Infinite Full Burst On Kill In Battle
+0
+jgduff1
+0 36F85374 00000000
+#
+ASM Instant + Infinite Full Burst On Kill In Battle
+0
+jgduff1
+0 0016C154 90430004
+0 0016C17C 91230004
+#
+Gold 9999999
+0
+CodeFreak/PS3UserCheat
+0 00B49508 0098967F
+#
+SP 99999
+0
+CodeFreak/PS3UserCheat
+0 00B4951C 0001869F
+#
+Max Money On Buy
+0
+JorgeFFC
+0 0027DC84 60000000
+#
+Max Casino Coins In Exchange For A Prize
+0
+JorgeFFC
+0 0027DA10 60000000
+#
+Max Skill Points After Using An SP Item
+0
+JorgeFFC
+0 0027DA60 60000000
+#
+Infinite Item Usage
+0
+JorgeFFC
+0 002802E0 60000000
+#
+Instant Max Level On 1 Kill
+0
+JorgeFFC
+0 002789C4 60000000
+#
+Instant Recover HP After Exit Battle Mode
+0
+JorgeFFC
+0 0016A98C 60000000
+#
+Hero Actual HP
+0
+JorgeFFC
+0 36F893AA 270F
+#
+Max Money On Buy
+0
+JorgeFFC
+0 0027DC90 60000000
+#
+Max Casino Coins In Exchange For A Prize
+0
+JorgeFFC
+0 0027DA1C 60000000
+#
+Max Skill Points After Using An SP Item
+0
+JorgeFFC
+0 0027DA6C 60000000
+#
+Infinite Item Usage
+0
+JorgeFFC
+0 002802EC 60000000
+#
+Instant Max Level On 1 Kill
+0
+JorgeFFC
+0 002789D0 60000000
+#
+Instant Recover HP After Exit Battle Mode
+0
+JorgeFFC
+0 0016A998 60000000
+#
+AoB Max Money On Buy
+0
+JorgeFFC
+B 00010000 04000000
+B 6000967F7F840040409D00087C04037881622914 6000967F7F840040600000007C04037881622914
+#
+AoB Max Casino Coins In Exchange For A Prize
+0
+JorgeFFC
+B 00010000 04000000
+B 6000423F7F840040409D00087C040378 6000423F7F840040600000007C040378
+#
+AoB Max Skill Points After Using An SP Item
+0
+JorgeFFC
+B 00010000 04000000
+B 409D00087C040378908300284E80002081230028 600000007C040378908300284E80002081230028
+#
+AoB Infinite Item Usage
+0
+JorgeFFC
+B 00010000 04000000
+B 2F840063409D00083880006390830000 2F840063600000003880006390830000
+#
+AoB Instant Max Level On 1 Kill
+0
+JorgeFFC
+B 00010000 04000000
+B 7F845800409D00087D645B7890830034 7F845800600000007D645B7890830034
+#
+AoB Instant Recover HP After Exit Battle Mode
+0
+JorgeFFC
+B 00010000 04000000
+B 7FC300387F834800409D00087D234B78 7FC300387F834800600000007D234B78
+#
+ASM Max + Infinite Skills Points On Gain
+0
+jgduff1
+0 0027DAA4 91630028
+#
+ASM Gold Never Increases Or Decreases
+0
+jgduff1
+0 00103044 60000000
+#
+ASM Instant + Infinite Full Burst On Kill In Battle
+0
+jgduff1
+0 0016C160 90430004
+0 0016C188 91230004
+#

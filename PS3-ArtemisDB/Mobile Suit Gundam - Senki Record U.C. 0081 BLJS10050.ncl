@@ -1,0 +1,239 @@
+AoB Max Money On Buy Or Sell
+0
+Skiller
+B 00010000 04000000
+B 419D02CC8138000093E9283C 480002CC8138000093E9283C
+#
+AoB Max Money On Load
+0
+Jon888
+B 00010000 04000000
+B 409D00087C05037838806B25 600000007C05037838806B25
+#
+AoB Max EXP On Gain
+0
+Skiller
+B 00010000 04000000
+B 7F890000409D0050A01F0002 7F800000409D0004A01F0002
+#
+AoB Change Game Save Area To 01.02 BLJS10050-FREEMISSIONDATA to BLJS10050-FREEMISSIONDAT2
+0
+Skiller
+B 00010000 04000000
+B 424C4A5331303035302D465245454D495353494F4E44415441 424C4A5331303035302D465245454D495353494F4E44415432
+#
+AoB Change Game Save Area To 01.02 BLJS10050-SCENARIODATA to BLJS10050-SCENARIODAT2
+0
+Skiller
+B 00010000 04000000
+B 424C4A5331303035302D5343454E4152494F44415441 424C4A5331303035302D5343454E4152494F44415432
+#
+AoB Change Game Save Area To 01.02 BLJS10050-SYSTEMDATA to BLJS10050-SYSTEMDAT2
+0
+Skiller
+B 00010000 04000000
+B 424C4A5331303035302D53595354454D44415441 424C4A5331303035302D53595354454D44415432
+#
+Power 9999999pt
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 31C8242C 0098967F
+#
+Max Experience (Hero)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E7FEC 05F5E0FF
+#
+Combat 99 (Hero)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E7FFA 0063
+#
+Firing 99 (Hero)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E7FFE 0063
+#
+Defense 99 (Hero)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8002 0063
+#
+Pilot 99 (Hero)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8006 0063
+#
+Max Experience (P2)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8048 05F5E0FF
+#
+Combat 99 (P2)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8056 0063
+#
+Firing 99 (P2)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E805A 0063
+#
+Defense 99 (P2)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E805E 0063
+#
+Pilot 99 (P2)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8062 0063
+#
+Max Experience (P3)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E80A4 05F5E0FF
+#
+Combat 99 (P3)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E80B2 0063
+#
+Firing 99 (P3)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E80B6 0063
+#
+Defense 99 (P3)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E80BA 0063
+#
+Pilot 99 (P3)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E80BE 0063
+#
+Max Experience (P4)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8100 05F5E0FF
+#
+Combat 99 (P4)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E810E 0063
+#
+Firing 99 (P4)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8112 0063
+#
+Defense 99 (P4)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8116 0063
+#
+Pilot 99 (P4)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E811A 0063
+#
+Max Experience (P5)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E815C 05F5E0FF
+#
+Combat 99 (P5)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E816A 0063
+#
+Firing 99 (P5)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E816E 0063
+#
+Defense 99 (P5)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8172 0063
+#
+Pilot 99 (P5)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319E8176 0063
+#
+Fully Open-armed (Gun)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319ED6A1 63636363
+0 319ED6A5 63636363
+0 319ED6A9 63636363
+0 319ED6AD 63636363
+0 319ED6B1 63636363
+0 319ED6B5 63636363
+0 319ED6B9 63636363
+0 319ED6BD 63636363
+0 319ED6C1 63636363
+0 319ED6C5 63636363
+0 319ED6C9 63636363
+0 319ED6CD 63636363
+0 319ED6D1 63636363
+0 319ED6D5 63636363
+0 319ED6D9 63636363
+0 319ED6DD 63636363
+#
+Fully Open-armed (Shield)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319ED71D 63636363
+0 319ED721 63636363
+0 319ED725 63636363
+0 319ED729 63636363
+0 319ED72D 63636363
+0 319ED731 63636363
+0 319ED735 63636363
+0 319ED739 63636363
+0 319ED73D 63636363
+0 319ED741 63636363
+#
+Fully Open-armed (Parts)
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 319ED8A2 63636363
+0 319ED8A6 63636363
+0 319ED8AA 63636363
+0 319ED8AE 63636363
+0 319ED8B2 63636363
+0 319ED8B6 63636363
+0 319ED8BA 63636363
+0 319ED8BE 63636363
+0 319ED8C2 63636363
+0 319ED8C6 63636363
+0 319ED8CA 63636363
+0 319ED8CE 63636363
+0 319ED8D2 63636363
+0 319ED8D6 63636363
+0 319ED8DA 63636363
+0 319ED8DE 63636363
+0 319ED8E2 63636363
+0 319ED8E6 63636363
+0 319ED8EA 63636363
+0 319ED8EE 63636363
+0 319ED8F2 63636363
+0 319ED8F6 63636363
+0 319ED8FA 63636363
+0 319ED8FE 63636363
+0 319ED902 63636363
+0 319ED906 63636363
+0 319ED90A 63636363
+0 319ED90E 63636363
+0 319ED912 63636363
+#
+Power 9999999pt
+0
+kankabiyori.blog74.fc2.com/blog-entry-749.html
+0 31C8FDAC 0098967F
+0 31C8FDEC 0098967F
+#

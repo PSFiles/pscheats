@@ -1,0 +1,18 @@
+# Twisted Metal
+
+name: Infinite Health
+author: Skiller
+mode: once
+w32 0050837C C0430010
+w32 00508380 D0430028
+
+name: Infinite Ammo
+author: Skiller
+mode: once
+w32 0031FBA8 60000000
+
+name: Infinite Turbo
+score NPEA00362 01.06: 75 1+ 0-
+author: Skiller
+mode: once
+w32 001C9EBC 60000000 working-val=54A3063E:1

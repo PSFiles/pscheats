@@ -1,0 +1,135 @@
+# Tomb Raider
+
+name: Infinite Health
+author: Hiei-YYH
+mode: once
+w32 00422AC8 38002710
+w32 00422AD0 90030010
+w32 00422AD4 90030014
+w32 00422AD8 4BFFFC8C
+
+name: Infinite Ammo + Fragments
+author: Hiei-YYH
+mode: once
+w32 00611504 A3A90000
+
+name: No Reload
+author: Hiei-YYH
+mode: once
+w32 00642614 39290000
+
+name: 10000 Fragments On Gain
+score BLES01780 01.03: 62 2+ 1-
+author: Hiei-YYH
+mode: once
+w32 00612C8C 38002710 working-val=A0090000:2
+
+name: Bullet Time Mode (R3 = On, L3 = Off)
+author: Hiei-YYH
+mode: once
+w32 01212220 3E00015D
+w32 01212224 6210B54C
+w32 01212228 A2100000
+w32 0121222C 2C040006
+w32 01212230 40820028
+w32 01212234 2C100002
+w32 01212238 41820018
+w32 0121223C 2C100004
+w32 01212240 41820008
+w32 01212244 48000014
+w32 01212248 3E003DCC
+w32 0121224C 48000008
+w32 01212250 3E003F80
+w32 01212254 920B0054
+w32 01212258 C00B0000
+w32 0121225C 4E800020
+w32 003E0C9C 48E31585
+
+name: Moon Jump
+author: Hiei-YYH
+mode: once
+w32 012124E0 7C0901CE
+w32 012124E4 3F60015D
+w32 012124E8 637BB54C
+w32 012124EC 837B0000
+w32 012124F0 737B0040
+w32 012124F4 2C1B0040
+w32 012124F8 4082000C
+w32 012124FC 3F604120
+w32 01212500 93690018
+w32 01212504 4E800020
+w32 0075A140 48AB83A1
+
+name: Infinite Arrows, Bullets, Salvage, Parts
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 00611504 7C1D0378
+
+name: Infinite Ammo In Clip
+score BLES01780 01.03: 25 0+ 1-
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 00642614 39200064
+
+name: Infinite Skill Points
+score BLES01780 01.03: 50 1+ 1-
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 00751CD0 60000000 working-val=60000000:1
+
+name: AoB Infinite Arrows, Bullets, Salvage, Parts
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+aob 7FBD00507FBC07342F9C0000409CFCC8 7C1D03787FBC07342F9C0000409CFCC8
+
+name: AoB Infinite Ammo In Clip
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+aob 3929FFFF913800A47E639B7838800000 39200064913800A47E639B7838800000
+
+name: AoB Infinite Skill Points
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+aob 7C090050900B00184BFFFF5C807C2300 60000000900B00184BFFFF5C807C2300
+
+name: Infinite Arrows, Bullets, Salvage, Parts
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 005F230C 7C1D0378
+
+name: Infinite Ammo In Clip
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 00628CAC 39200064
+
+name: Infinite Skill Points
+score BLES01780 01.03: 75 1+ 0-
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 007395DC 60000000 working-val=D0210070:1
+
+name: AoB Infinite Skill Points
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+aob 7C090050900B0018 60000000900B0018
+
+name: Infinite Ammo
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 00611504 7C1D0378
+
+name: No Reload
+score BLES01780 01.03: 25 0+ 1-
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+w32 00642614 39200064
+
+name: AoB Infinite Ammo
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+aob 7FBD00507FBC07342F9C0000409CFCC8 7C1D03787FBC07342F9C0000409CFCC8
+
+name: AoB No Reload
+author: games24.blog.fc2.com/blog-entry-169.html
+mode: once
+aob 3929FFFF913800A47E639B7838800000 39200064913800A47E639B7838800000

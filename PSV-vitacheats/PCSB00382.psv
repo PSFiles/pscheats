@@ -1,0 +1,17 @@
+# Title: Flyhunter Origins
+# ID: PCSB00382
+# Region: EU
+# Version: 1.00
+# Type: NoNpDrm
+# Note: [noaslr.skprx] Plugin
+# only for VitaCheat z06 and FW 3.65+
+# Code Author: tomberyx
+
+# PCSB00382 
+
+_V0 Hold X to Fly
+$B200 00000001 0000BABE
+$C202 00000001 00004000
+$3202 00004D7C 00003D44
+$0000 00000000 0000F970
+$0000 00000000 41200000

@@ -1,0 +1,20 @@
+# Title: Warlock's Tower
+# ID: PCSB01208
+# Region: EU
+# Version: 1.00
+# Type: NoNpDrm
+# Vita-Language: German
+# Reset Game: 10+
+# Code Author: tomberyx
+
+# PCSB01208 
+
+_V0 inf.Walk [A] use only in Game [crash]
+$3202 83761B10 00000374
+$0000 00000000 00000094
+$0000 00000000 00000004
+
+_V0 inf.Walk [B] use only in Game if [A] not work
+$3202 82761B10 00000374
+$0000 00000000 00000094
+$0000 00000000 00000004

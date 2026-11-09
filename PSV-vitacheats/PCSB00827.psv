@@ -1,0 +1,18 @@
+# Title: Volume
+# ID: PCSB00827
+# Region: EU
+# Version: 1.03
+# Type: NoNpDrm
+# Note: [noaslr.skprx] Plugin
+# only for VitaCheat z06 and FW 3.65+
+# Code Author: tomberyx
+--------Seg 0  Test-Code---------
+
+# PCSB00827 
+
+_V0 [Instant] Portal-Open [Seg 0]
+$B200 00000000 0000BABE
+$3202 00969408 00005F30
+$0000 00000000 00000064
+$0000 00000000 469C4000
+

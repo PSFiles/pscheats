@@ -1,0 +1,43 @@
+Infinite Health
+0
+flynhigh09
+0 0099AA54 60000000
+#
+AoB Infinite Health
+0
+flynhigh09
+B 00010000 04000000
+B 988306414E80002030A30550 600000004E80002030A30550
+#
+3000x Stud Multiplier
+0
+Hiei-YYH
+0 00FC1BDC 1FBD0BB8
+#
+Max Studs
+0
+martin1978
+0 395098E4 FFFFFFFF
+0 395098EC FFFFFFFF
+#
+Unlimited Studs (Story Missions)
+0
+martin1978
+0 395099A4 05F5E0FF
+0 395099AC 05F5E0FF
+#
+Infinite Health
+0
+flynhigh09
+0 0099A8B4 60000000
+#
+Infinite Health
+0
+flynhigh09
+0 0099AA44 60000000
+#
+3000x Stud Multiplier
+0
+Hiei-YYH
+0 00FC1BCC 1FBD0BB8
+#

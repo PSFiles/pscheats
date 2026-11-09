@@ -1,0 +1,65 @@
+# Knights Contract
+
+name: Memory Fast Regeneration (Heinrich)(Gretchen Only When You Grab It) (1 Second For Full Life) + Press X 1 Time For Revive
+author: jgduff1
+mode: once
+w32 111876A4 00000032
+
+name: ASM Heinrich Fast Regeneration
+score BLES01001 01.00: 75 1+ 0-
+author: jgduff1
+mode: once
+w32 001E5E30 7C8B4A14 working-val=7C844A14:1
+
+name: Memory Gretchen Infinite Health
+author: jgduff1
+mode: once
+w32 110D2034 000000C8
+
+name: ASM Gretchen Infinite Health
+score BLES01001 01.00: 50 1+ 1-
+author: jgduff1
+mode: once
+w32 001E660C 7D204850 working-val=7D244850:1
+w32 001E6614 60000000 working-val=91230008:1
+
+name: Memory Lot Of Orbs When Gain
+author: jgduff1
+mode: once
+w32 1589D058 00000647
+
+name: ASM Lot Of Orbs When Gain
+score BLES01001 01.00: 50 1+ 1-
+author: jgduff1
+mode: once
+w32 001E6B84 7F822214 working-val=7F9C2214:1
+w32 001E6B88 915D0008 working-val=939D0008:1
+
+name: Memory No Waiting Time For Magic
+score BLES01001 01.00: 75 1+ 0-
+author: jgduff1
+mode: once
+w32 1589C6A4 00000000 working-val=00000000:1
+
+name: ASM No Waiting Time For Magic
+score BLES01001 01.00: 75 1+ 0-
+author: jgduff1
+mode: once
+w32 00195090 EC0DF828 working-val=EC00F828:1
+
+name: Memory Instant Max + Infinite Berserker
+author: jgduff1
+mode: once
+w32 1103AD20 00000064
+
+name: Instant Max Berserker
+score BLES01001 01.00: 75 1+ 0-
+author: jgduff1
+mode: once
+w32 001E5E84 91230014 working-val=90830014:1
+
+name: Infinite Berserker
+score BLES01001 01.00: 75 1+ 0-
+author: jgduff1
+mode: once
+w32 001E62C0 60000000 working-val=90830014:1

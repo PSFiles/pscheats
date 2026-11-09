@@ -1,0 +1,26 @@
+Infinite HP
+0
+xtatu
+0 002671C0 38C90000
+#
+Death
+0
+xtatu
+0 002671C0 7CDE4850
+#
+Infinite GP
+0
+xtatu
+0 002671F4 38C90000
+#
+0 GP
+0
+xtatu
+0 002671F4 7D596050
+#
+Reflex
+0
+unknown
+0 394D200A 0001
+0 0023AA84 4E800020
+#

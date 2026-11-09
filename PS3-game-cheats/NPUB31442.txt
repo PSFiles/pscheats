@@ -1,0 +1,14 @@
+# Deception IV: Blood Ties
+
+name: Max Everything On Load
+mode: once
+w32 00562EE0 3CA03B9A
+w32 00562EE4 60A5C9FF
+
+name: Max WARL + Exp
+author: jijibecali
+mode: once
+w32 323D0A50 00FFFFFF
+w32 323D0A54 00FFFFFF
+w32 323D0A58 00FFFFFF
+w32 323D0A5C 00FFFFFF

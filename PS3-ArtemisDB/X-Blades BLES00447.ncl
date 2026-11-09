@@ -1,0 +1,11 @@
+Max Souls
+0
+xtatu
+0 001C6EC0 3F603B9A
+0 001C6EC4 637BCA00
+#
+Max Health
+0
+xtatu
+0 002E7704 C01D0004
+#

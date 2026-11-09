@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PS Cheats · cheats de PS3, PS4 e PS5</title>
+<meta name="description" content="Busca instantânea em toda a coleção de cheats de PS3 (Artemis), PS4 (GoldHEN) e PS5 (HEN) — por jogo, serial ou nome do cheat.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f8cff'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23071018'%3EPS%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">PS</span>
+      <div class="brand-text">
+        <h1>PS&nbsp;Cheats</h1>
+        <p class="tagline">Cheats de PS3, PS4 e PS5 — busca em toda a coleção por jogo, serial ou nome do cheat.</p>
+      </div>
+    </div>
+
+    <form class="search" id="search-form" role="search" autocomplete="off">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 0 3.9 10.6l4.3 4.3 1.4-1.4-4.3-4.3A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/></svg>
+      <input id="q" type="search" name="q" placeholder="Buscar jogo, serial (BLES01017) ou cheat…" aria-label="Buscar jogo, serial ou cheat" spellcheck="false">
+      <button type="button" id="clear" class="clear" hidden aria-label="Limpar busca">×</button>
+      <kbd class="hint" aria-hidden="true">/</kbd>
+    </form>
+
+    <div class="controls">
+      <div class="chips" id="platforms" role="group" aria-label="Filtrar por plataforma">
+        <button type="button" class="chip" data-p="PS3" aria-pressed="false">PS3</button>
+        <button type="button" class="chip" data-p="PS4" aria-pressed="false">PS4</button>
+        <button type="button" class="chip" data-p="PSV" aria-pressed="false">Vita</button>
+      </div>
+      <label class="sort">
+        <span>Ordenar</span>
+        <select id="sort">
+          <option value="title">Título (A–Z)</option>
+          <option value="cheats">Mais cheats</option>
+          <option value="serial">Serial</option>
+        </select>
+      </label>
+      <span id="stats" class="stats" aria-live="polite">carregando…</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap main">
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+  <ul id="list" class="list"></ul>
+  <div id="more" class="more"></div>
+</main>
+
+<footer class="wrap foot">
+  <p>
+    Dados de <a href="https://github.com/mohasi/game-cheats" rel="noopener">mohasi/game-cheats</a>,
+    <a href="https://github.com/bucanero/ArtemisPS3/tree/master/docs/codes" rel="noopener">bucanero/ArtemisPS3</a>,
+    <a href="https://github.com/GoldHEN/GoldHEN_Cheat_Repository" rel="noopener">GoldHEN</a> e
+    <a href="https://github.com/TeeKay87/HEN-Cheats-Collection" rel="noopener">TeeKay87/HEN-Cheats-Collection</a>.
+    Todo crédito aos autores de cada cheat.
+  </p>
+</footer>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<aside id="drawer" class="drawer" aria-hidden="true" aria-labelledby="drawer-title">
+  <header class="drawer-head">
+    <div class="drawer-title-wrap">
+      <h2 id="drawer-title">…</h2>
+      <p id="drawer-meta" class="drawer-meta"></p>
+    </div>
+    <button type="button" id="drawer-close" class="icon-btn" aria-label="Fechar detalhes">×</button>
+  </header>
+  <div id="drawer-body" class="drawer-body"></div>
+</aside>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>

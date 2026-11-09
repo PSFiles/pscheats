@@ -1,0 +1,1305 @@
+99999999 Exp
+0
+xtatu
+0 000C6DD4 419D0008
+#
+99999999 Gald
+0
+xtatu
+0 000C933C 419D0008
+#
+Damager Normal Hit Work + Magic Mode X Button
+0
+xtatu
+0 010CFC90 00000000
+0 010CFC94 00000000
+0 010CFC98 00000000
+0 010CFC9C 00000000
+#
+Recover HP Hit Mode Player + Enemies
+0
+xtatu
+0 010CFC88 C2C80000
+#
+Recover HP Hit Mode Player Stan On
+0
+xtatu
+0 010CFC84 BE4CCCCD
+#
+E.Core Max (Max Elemental Points after battle for Skills)
+0
+xtatu
+0 000C930C 419D0008
+#
+TP 999 Max Not Infinite
+0
+xtatu
+0 0025809C 40850CF8
+#
+SP 999 Max Not Infinite
+0
+xtatu
+0 0025810C 40990C58
+#
+HP 9999 Max Not Infinite
+0
+xtatu
+0 00257EAC 40850ECC
+#
+Auto Death Enemy No Fighters Mode
+0
+xtatu
+0 00257EA0 40800010
+#
+Infinite TP
+0
+Medo
+0 00240D2C 31230014
+0 00240D30 4E800020
+#
+Max Arte Count On Use
+0
+Medo
+0 0024745C 3980270F
+#
+Infinite Over Limit (Must Use 1 Arte Link)
+0
+Medo
+0 00221190 60000000
+0 002211B8 60000000
+#
+Max Gald On Buy + Sell + Gain
+0
+Medo
+0 00220FBC 60000000
+#
+Max Exp On Gain (Level 200)
+0
+Medo
+0 0025605C 3C807FFF
+#
+Infinite AC
+0
+Medo
+0 00240D50 4081000C
+#
+Max Items on Sell + Discard + Buy + Gain
+0
+Medo
+0 00542C98 40990020
+#
+Have All Items + Infinite All Items
+0
+Medo
+0 0053EFEC 38600063
+0 0053F044 68E00063
+#
+Freeze Play Time
+0
+Medo
+0 0022D7B8 60000000
+0 0022D804 60000000
+#
+AoB 99999999 Exp
+0
+xtatu
+B 00010000 04000000
+B 409D00087D204B787C0600F87CC5FE707C04283890830094 419D00087D204B787C0600F87CC5FE707C04283890830094
+#
+AoB 99999999 Gald
+0
+xtatu
+B 00010000 04000000
+B 800300986129E0FF7C0402147F804800409D0008 800300986129E0FF7C0402147F804800419D0008
+#
+AoB Damager Normal Hit Work + Magic Mode X Button
+0
+xtatu
+B 00010000 04000000
+B 3FC000003F6666663F8CCCCD3FA66666 00000000000000000000000000000000
+#
+AoB Recover HP Hit Mode Player + Enemies
+0
+xtatu
+B 00010000 04000000
+B 42C8000041000000 C2C8000041000000
+#
+AoB Recover HP Hit Mode Player Stand On
+0
+xtatu
+B 00010000 04000000
+B 3F4CCCCD3E4CCCCD 3F4CCCCDBE4CCCCD
+#
+AoB E.Core Max (Max Elemental Points after battle for Skills)
+0
+xtatu
+B 00010000 04000000
+B 8003009C6129E0FF7C0402147F804800409D0008 8003009C6129E0FF7C0402147F804800419D0008
+#
+AoB Auto Death Enemy No Fighters Mode
+0
+xtatu
+B 00010000 04000000
+B 917F6EF441800010 917F6EF440800010
+#
+AoB Infinite TP
+0
+Medo
+B 00010000 04000000
+B 7C89237891230014 312300144E800020
+#
+AoB Max Arte Count on Use
+0
+Medo
+B 00010000 04000000
+B 7FDDFE707C0CE838 7FDDFE703980270F
+#
+AoB Infinite Over Limit [Must Use 1 Arte Link]
+0
+Medo
+B 00010000 04000000
+B EC616828FC430B6EFC0260AED00900284E80002081230000C182CC04C1A2CC08C0890028EC21202AEC616028 60000000FC430B6EFC0260AED00900284E80002081230000C182CC04C1A2CC08C0890028EC21202A60000000
+#
+AoB Max Gald on Buy + Sell + Gain
+0
+Medo
+B 00010000 04000000
+B 7FA04800409D0008 7FA0480060000000
+#
+AoB Max Exp On Gain (Level 200)
+0
+Medo
+B 00010000 04000000
+B 2C8600C87C042838 2C8600C83C807FFF
+#
+AoB Infinite AC
+0
+Medo
+B 00010000 04000000
+B 80036EFC39200000419C00107C0020007C0903784181000C 80036EFC39200000419C00107C0020007C0903784081000C
+#
+AoB Max Items on Sell + Discard + Buy + Gain
+0
+Medo
+B 00010000 04000000
+B 7F05180041990020 7F05180040990020
+#
+AoB Have All Items + Infinite All Items
+0
+Medo
+B 00010000 04000000
+B 6000000057A6482C5463063E7CA6F2142C03000057CBE8FE 3860006357A6482C5463063E7CA6F2142C03000057CBE8FE
+B 00010000 04000000
+B 68E000017C0307B44E800020809C0000EB8100A07D240214 68E000637C0307B44E800020809C0000EB8100A07D240214
+#
+AoB Freeze Play Time
+0
+Medo
+B 00010000 04000000
+B EBCB001038800001F92B0008 EBCB00103880000160000000
+B 00010000 04000000
+B EBCB082838800001F92B0010 EBCB08283880000160000000
+#
+99999999 Exp
+0
+xtatu
+0 000C68FC 419D0008
+#
+99999999 Gald
+0
+xtatu
+0 000C8E64 419D0008
+#
+Damager Normal Hit Work + Magic Mode X Button
+0
+xtatu
+0 010AF534 00000000
+0 010AF538 00000000
+0 010AF53C 00000000
+0 010AF540 00000000
+#
+Recover HP Hit Mode Player + Enemies
+0
+xtatu
+0 010AF52C C2C80000
+#
+Recover HP Hit Mode Player Stand On
+0
+xtatu
+0 010AF528 BE4CCCCD
+#
+Max E.CORE
+0
+xtatu
+0 000C8E34 419D0008
+#
+TP 999 Max Not Infinite
+0
+xtatu
+0 0024FA6C 40850CF8
+#
+SP 999 Max Not Infinite
+0
+xtatu
+0 0024FADC 40990C58
+#
+HP 9999 Max Not Infinite
+0
+xtatu
+0 0024F87C 40850EC0
+#
+1 Hit Kills
+0
+xtatu
+0 00250740 48000040
+#
+Infinite TP
+0
+Medo
+0 00238700 31230014
+0 00238704 4E800020
+#
+Max Arte Count On Use
+0
+Medo
+0 0023EE2C 3980270F
+#
+Infinite Over Limit (Must Use 1 Arte Link)
+0
+Medo
+0 00218B60 60000000
+0 00218B88 60000000
+#
+Max Gald On Buy + Sell + Gain
+0
+Medo
+0 0021898C 60000000
+#
+Max Exp On Gain (Level 200)
+0
+Medo
+0 0024DA2C 3C807FFF
+#
+Infinite AC
+0
+Medo
+0 00238720 4081000C
+#
+Infinite HP
+0
+Medo
+0 138D8070 0000270F
+0 138D8074 0000270F
+#
+Infinite TP
+0
+Medo
+0 138D8084 0000270F
+0 138D8088 0000270F
+#
+Max Stats
+0
+Medo
+0 138D8094 0000270F
+0 138D8098 0000270F
+0 138D809C 0000270F
+0 138D80A0 0000270F
+0 138D80A4 0000270F
+0 138D80A8 0000270F
+#
+Max Items On Sell + Discard + Buy + Gain
+0
+Medo
+0 00538AD8 40990020
+#
+Have All Items + Infinite All Items
+0
+Medo
+0 00534E2C 38600063
+0 00534E84 68E00063
+#
+Freeze Play Time
+0
+Medo
+0 00225188 60000000
+0 002251D4 60000000
+#
+AoB Infinite Over Limit (Must Use 1 Arte Link)
+0
+Medo
+B 00010000 04000000
+B EC616828FC430B6EFC0260AED00900284E80002081230000C182CB4CC1A2CB50C0890028EC21202AEC616028 60000000FC430B6EFC0260AED00900284E80002081230000C182CB4CC1A2CB50C0890028EC21202A60000000
+#
+Exp 99999999
+0
+xtatu
+0 000C6DC4 419D0008
+#
+Gald 99999999
+0
+xtatu
+0 000C932C 419D0008
+#
+E.CORE Max
+0
+xtatu
+0 000C92FC 419D0008
+#
+TP 999 Max Not Infinite
+0
+xtatu
+0 0024FF3C 40850CF8
+0 0024FFAC 40990C58
+#
+SP 999 Max Not Infinite
+0
+xtatu
+0 0024FFAC 40990C58
+#
+Auto Death Enemy No Fighters Mode
+0
+xtatu
+0 0024F870 40800010
+#
+1 Hit Kills
+0
+xtatu
+0 00250C10 48000040
+#
+Infinite TP
+0
+Medo
+0 00238BD0 31230014
+0 00238BD4 4E800020
+#
+Have All Items + Infinite All Items
+0
+Medo
+0 00533564 38600063
+0 005335BC 38E00063
+#
+Bypass Debt Message
+0
+Hiei-YYH
+0 0021CFD4 38600000
+0 004554E0 80690018
+0 00456050 80690018
+0 0039571C 80690018
+#
+Infinite HP
+0
+Hiei-YYH
+0 00E86380 82116EF4
+0 00E86384 92110010
+0 00E86388 4E800020
+0 0017A7E8 48D0BB99
+#
+Infinite Chromatus Gauge
+0
+Hiei-YYH
+0 00E861EC 80690374
+0 00E861F0 90690370
+0 00E861F4 7C6307B4
+0 00E861F8 4E800020
+0 0021D890 48C6895C
+0 0021D874 60000000
+#
+Instant Max SP (Skill Point)
+0
+Hiei-YYH
+0 002580D4 48000C58
+#
+Infinite Overdrive
+0
+Hiei-YYH
+0 00E86180 3C60447A
+0 00E86184 90690028
+0 00E86188 4B2B6720
+0 0013C8A4 48D498DC
+#
+Have All Items (No Key Items)
+0
+Hiei-YYH
+0 00E8618C 2C000A01
+0 00E86190 40800010
+0 00E86194 38000063
+0 00E86198 98090001
+0 00E8619C 4B6B8E84
+0 00E861A0 2C000E01
+0 00E861A4 4080FFF0
+0 00E861A8 88090001
+0 00E861AC 4B6B8E74
+0 0053F01C 48947170
+#
+Instant Get Enemy Kill SP Bonus
+0
+Hiei-YYH
+0 0005F9F4 3AE000C8
+#
+Instant Job Clear (Enemy if it is more than 1)
+0
+Hiei-YYH
+0 00E861FC 839F0010
+0 00E86200 2C1C0001
+0 00E86204 41810008
+0 00E86208 4E800020
+0 00E8620C 3B800000
+0 00E86210 939F0010
+0 00E86214 4E800020
+0 002689B4 48C1D849
+#
+Max Gald on Buy, Sell, Or Gain
+0
+Medo
+0 00220F84 60000000
+#
+Max Exp On Gain (Level 200)
+0
+Medo
+0 00256024 3C807FFF
+#
+Infinite AC
+0
+Medo
+0 00240D18 4081000C
+#
+Max Items On Sell, Discard, Buy, Or Gain
+0
+Medo
+0 00542C40 40990020
+#
+Infinite TP
+0
+Medo
+0 00240CF8 31230014
+#
+Max Arte Count On Use
+0
+Medo
+0 00247424 3980270F
+#
+Infinite Over Limit (Must Use 1 Arte Link to Gain Max + Infinite)
+0
+Medo
+0 00221158 60000000
+0 00221180 60000000
+#
+Have All Items + Infinite All Items
+0
+Medo
+0 0053EF94 38600063
+0 0053EFEC 68E00063
+#
+Freeze Play Time
+0
+Medo
+0 0022D780 60000000
+0 0022D7CC 60000000
+#
+E-Core Max
+0
+xtatu
+0 000C930C 419D0008
+#
+TP 999 Max Not Infinite
+0
+xtatu
+0 00267064 40850CF8
+#
+SP 999 Max Not Infinite
+0
+xtatu
+0 002670D4 40990C58
+#
+HP 9999 Max Not Infinite
+0
+xtatu
+0 002579A4 40850EC0
+#
+Auto Death Enemies
+0
+xtatu
+0 00257998 40800010
+#
+1 Hit Kills
+0
+xtatu
+0 00258D38 48000040
+#
+Max Grade Amount, Use On Inheritance Screen
+0
+JorgeFFC
+0 17784F3C 0001869F
+#
+Food Remaining 99
+0
+iamzed
+0 13726FFE 0063
+#
+Food 80% more Elemental Ore
+0
+iamzed
+0 13726FFB 5A
+#
+Food 80% more Gald
+0
+iamzed
+0 13726FFB 48
+#
+Food 80% more Exp
+0
+iamzed
+0 13726FFB 3F
+#
+All Gradeshops Options
+0
+aoshi22
+0 13726F74 02FFFFFF
+0 13726F78 FFFFFF00
+#
+Wilted Filiforlia 14 Times Fought
+0
+iamzed
+0 12F10B6A 000E
+#
+Terra Chirpee 14 Times Fought
+0
+iamzed
+0 12F1094A 000E
+#
+Terra Treant 14 Times Fought
+0
+iamzed
+0 12F10A7A 000E
+#
+Bog Chripee 14 Times Fought
+0
+iamzed
+0 12F1095A 000E
+#
+Gentleman 14 Times Fought
+0
+iamzed
+0 12F10D8A 000E
+#
+Plated Boar 14 Times Fought
+0
+iamzed
+0 12F105EA 000E
+#
+Cockatrice 14 Times Fought
+0
+iamzed
+0 12F10E0A 000E
+#
+Water Djinn 14 Times Fought
+0
+iamzed
+0 12F10CAA 000E
+#
+Faud Djinn 14 Times Fought
+0
+iamzed
+0 12F1193A 000E
+#
+Alest Chirpee 14 Times Fought
+0
+iamzed
+0 12F11A9A 000E
+#
+Alest Horse 14 Times Fought
+0
+iamzed
+0 12F119BA 000E
+#
+Alest Plant 14 Times Fought
+0
+iamzed
+0 12F1199A 000E
+#
+Alest Ribbit 14 Times Fought
+0
+iamzed
+0 12F11ABA 000E
+#
+Vulture 14 Times Fought
+0
+iamzed
+0 12F108CA 000E
+#
+Terra Mandragora 14 Times Fought
+0
+iamzed
+0 12F10ADA 000E
+#
+Wild Boar 14 Times Fought
+0
+iamzed
+0 12F105FA 000E
+#
+Ancient Cat 14 Times Fought
+0
+iamzed
+0 12F106AA 000E
+#
+Neo Dragon 14 Times Fought
+0
+iamzed
+0 12F10E5A 000E
+#
+Blade Beak 14 Times Fought
+0
+iamzed
+0 12F1059A 000E
+#
+Burrow Goblin 14 Times Fought
+0
+iamzed
+0 12F1088A 000E
+#
+Lizardman 14 Times Fought
+0
+iamzed
+0 12F106FA 000E
+#
+Cave Chirpee 14 Times Fought
+0
+iamzed
+0 12F1096A 000E
+#
+Cave Plant 14 Times Fought
+0
+iamzed
+0 12F10B3A 000E
+#
+Gun Tortoise 14 Times Fought
+0
+iamzed
+0 12F1074A 000E
+#
+King Cocktarice 14 Times Fought
+0
+iamzed
+0 12F10E1A 000E
+#
+Hawk 14 Times Fought
+0
+iamzed
+0 12F1089A 000E
+#
+Bee 14 Times Fought
+0
+iamzed
+0 12F109CA 000E
+#
+Filifolia 14 Times Fought
+0
+iamzed
+0 12F10B5A 000E
+#
+Boar 14 Times Fought
+0
+iamzed
+0 12F105BA 000E
+#
+Grass Polwigle 14 Times Fought
+0
+iamzed
+0 12F1080A 000E
+#
+Sylvan Treant 14 Times Fought
+0
+iamzed
+0 12F10A6A 000E
+#
+Leafy Mandragora 14 Times Fought
+0
+iamzed
+0 12F10ABA 000E
+#
+Sylvan Wolf 14 Times Fought
+0
+iamzed
+0 12F1052A 000E
+#
+Basilisk 14 Times Fought
+0
+iamzed
+0 12F10DDA 000E
+#
+Sword Bee 14 Times Fought
+0
+iamzed
+0 12F109DA 000E
+#
+Wind Djinn 14 Times Fought
+0
+iamzed
+0 12F10C8A 000E
+#
+Angry Tortoise 14 Times Fought
+0
+iamzed
+0 12F1072A 000E
+#
+Green Butterfly 14 Times Fought
+0
+iamzed
+0 12F1098A 000E
+#
+Gentlesylph 14 Times Fought
+0
+iamzed
+0 12F10DBA 000E
+#
+Armored Mountain Bandit 14 Times Fought
+0
+iamzed
+0 12F1143A 000E
+#
+Mon Grunt 14 Times Fought
+0
+iamzed
+0 12F103AA 000E
+#
+Snow Tortoise 14 Times Fought
+0
+iamzed
+0 12F1073A 000E
+#
+Snowmelt Merfish 14 Times Fought
+0
+iamzed
+0 12F106DA 000E
+#
+Snow Dragon 14 Times Fought
+0
+iamzed
+0 12F10E2A 000E
+#
+Culmar Beast Warrior 14 Times Fought
+0
+iamzed
+0 12F1039A 000E
+#
+Culmar Beast Mage 14 Times Fought
+0
+iamzed
+0 12F1249A 000E
+#
+Spider 14 Times Fought
+0
+iamzed
+0 12F10A0A 000E
+#
+Floral Cat 14 Times Fought
+0
+iamzed
+0 12F1067A 000E
+#
+Dusk Shade 14 Times Fought
+0
+iamzed
+0 12F10C2A 000E
+#
+Prickle Spider 14 Times Fought
+0
+iamzed
+0 12F10A1A 000E
+#
+Goblin 14 Times Fought
+0
+iamzed
+0 12F1084A 000E
+#
+Wolf 14 Times Fought
+0
+iamzed
+0 12F1051A 000E
+#
+Axe Beak 14 Times Fought
+0
+iamzed
+0 12F1056A 000E
+#
+Insect Plant 14 Times Fought
+0
+iamzed
+0 12F10AFA 000E
+#
+Fleet Mare 14 Times Fought
+0
+iamzed
+0 12F1060A 000E
+#
+Tortoise 14 Times Fought
+0
+iamzed
+0 12F1071A 000E
+#
+Floral Harpy 14 Times Fought
+0
+iamzed
+0 12F10D5A 000E
+#
+Floral Butterfly 14 Times Fought
+0
+iamzed
+0 12F1099A 000E
+#
+Megistus Treant 14 Times Fought
+0
+iamzed
+0 12F10A9A 000E
+#
+Sylvan Mare 14 Times Fought
+0
+iamzed
+0 12F1062A 000E
+#
+Coastal Mandragora 14 Times Fought
+0
+iamzed
+0 12F10AAA 000E
+#
+Ribbit 14 Times Fought
+0
+iamzed
+0 12F107AA 000E
+#
+Polwigle 14 Times Fought
+0
+iamzed
+0 12F107FA 000E
+#
+Crab Man 14 Times Fought
+0
+iamzed
+0 12F1076A 000E
+#
+Merfish 14 Times Fought
+0
+iamzed
+0 12F106CA 000E
+#
+Chirpee 14 Times Fought
+0
+iamzed
+0 12F1093A 000E
+#
+Butterfly 14 Times Fought
+0
+iamzed
+0 12F1097A 000E
+#
+Treant 14 Times Fought
+0
+iamzed
+0 12F10A5A 000E
+#
+Toadstool Goblin 14 Times Fought
+0
+iamzed
+0 12F1085A 000E
+#
+Terra Goblin 14 Times Fought
+0
+iamzed
+0 12F1087A 000E
+#
+Terra Ribbit 14 Times Fought
+0
+iamzed
+0 12F107CA 000E
+#
+Terra Polwigle 14 Times Fought
+0
+iamzed
+0 12F1081A 000E
+#
+Skunky 14 Times Fought
+0
+iamzed
+0 12F10DFA 000E
+#
+Prism Beak 14 Times Fought
+0
+iamzed
+0 12F105AA 000E
+#
+Harpy 14 Times Fought
+0
+iamzed
+0 12F10D3A 000E
+#
+Slyvan Crab 14 Times Fought
+0
+iamzed
+0 12F1078A 000E
+#
+General Crab 14 Times Fought
+0
+iamzed
+0 12F1190A 000E
+#
+Filihelia 14 Times Fought
+0
+iamzed
+0 12F10B8A 000E
+#
+Golem 14 Times Fought
+0
+iamzed
+0 12F10BDA 000E
+#
+Erdas 14 Times Fought
+0
+iamzed
+0 12F1075A 000E
+#
+Shield Boar 14 Times Fought
+0
+iamzed
+0 12F105CA 000E
+#
+Golem Shade 14 Times Fought
+0
+iamzed
+0 12F10C3A 000E
+#
+Mine Plant 14 Times Fought
+0
+iamzed
+0 12F10B4A 000E
+#
+Ice Golem 14 Times Fought
+0
+iamzed
+0 12F10BFA 000E
+#
+Tundra Plant 14 Times Fought
+0
+iamzed
+0 12F10B2A 000E
+#
+Snow Wolf 14 Times Fought
+0
+iamzed
+0 12F1053A 000E
+#
+Fire Bat 14 Times Fought
+0
+iamzed
+0 12F1091A 000E
+#
+Fire Djinn 14 Times Fought
+0
+iamzed
+0 12F10CBA 000E
+#
+Fire Golem 14 Times Fought
+0
+iamzed
+0 12F10BEA 000E
+#
+Fire Hawk 14 Times Fought
+0
+iamzed
+0 12F108BA 000E
+#
+Magma Scorpion 14 Times Fought
+0
+iamzed
+0 12F10A4A 000E
+#
+Gentlefreet 14 Times Fought
+0
+iamzed
+0 12F10D9A 000E
+#
+Frost Beak 14 Times Fought
+0
+iamzed
+0 12F1058A 000E
+#
+Snow Treant 14 Times Fought
+0
+iamzed
+0 12F10A8A 000E
+#
+Penguinist 14 Times Fought
+0
+iamzed
+0 12F108AA 000E
+#
+Crystal Beak 14 Times Fought
+0
+iamzed
+0 12F1191A 000E
+#
+Ice Harpy 14 Times Fought
+0
+iamzed
+0 12F10D4A 000E
+#
+Unicore 14 Times Fought
+0
+iamzed
+0 12F1064A 000E
+#
+Filignome 14 Times Fought
+0
+iamzed
+0 12F10BAA 000E
+#
+Filisylph 14 Times Fought
+0
+iamzed
+0 12F10BBA 000E
+#
+Filifreet 14 Times Fought
+0
+iamzed
+0 12F10B9A 000E
+#
+Filindine 14 Times Fought
+0
+iamzed
+0 12F10BCA 000E
+#
+Armored Boar 14 Times Fought
+0
+iamzed
+0 12F105DA 000E
+#
+Snow Bat 14 Times Fought
+0
+iamzed
+0 12F1092A 000E
+#
+Rime Cat 14 Times Fought
+0
+iamzed
+0 12F1069A 000E
+#
+Frost Skeleton 14 Times Fought
+0
+iamzed
+0 12F10D0A 000E
+#
+Ice Mandragora 14 Times Fought
+0
+iamzed
+0 12F10ACA 000E
+#
+Gentlemundine 14 Times Fought
+0
+iamzed
+0 12F10DCA 000E
+#
+Protek Spider (Coliseum) 14 Times Fought
+0
+iamzed
+0 12F10A3A 000E
+#
+Mighty Plant(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F10B0A 000E
+#
+Night Bat(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F1090A 000E
+#
+Azure Hawk(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F108DA 000E
+#
+Runed Crab(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F1079A 000E
+#
+Lizitar(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F1070A 000E
+#
+Rune Butterfly(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F109AA 000E
+#
+Wind Butterfly(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F109BA 000E
+#
+Arena Gate(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F10E4A 000E
+#
+Power Shade(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F10C6A 000E
+#
+Scorpactus(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F127AA 000E
+#
+Veywind Eye(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F125BA 000E
+#
+Heavy Claw(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F1278A 000E
+#
+Pterobronc(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F1026A 000E
+#
+Greater Demon(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F1257A 000E
+#
+Radiant Horn(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F1268A 000E
+#
+Graddic Claw(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F125CA 000E
+#
+Moralzamm(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F126AA 000E
+#
+Brutaur(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F125AA 000E
+#
+Bluetaur(Coliseum) 14 Times Fought
+0
+iamzed
+0 12F126EA 000E
+#
+Western Wolf 14 Times Fought
+0
+iamzed
+0 12F119AA 000E
+#
+Swamp Polwigle 14 Times Fought
+0
+iamzed
+0 12F11ACA 000E
+#
+Striker Crab Man 14 Times Fought
+0
+iamzed
+0 12F11A1A 000E
+#
+Withered Treant 14 Times Fought
+0
+iamzed
+0 12F1198A 000E
+#
+AoB Max Gald On Buy, Sell, Or Gain
+0
+Medo
+B 00010000 04000000
+B 7FA04800409D00087D204B787C0500F8 7FA04800600000007D204B787C0500F8
+#
+AoB Max Exp On Gain (Level 200)
+0
+Medo
+B 00010000 04000000
+B 7C042838909D00204086001C4800004C 3C807FFF909D00204086001C4800004C
+#
+AoB Infinite AC
+0
+Medo
+B 00010000 04000000
+B 4181000C912300184E8000207C89237891230018 4081000C912300184E8000207C89237891230018
+#
+AoB Max Items On Sell, Discard, Buy, Or Gain
+0
+Medo
+B 00010000 04000000
+B 7F0518004199002056E8482C7BE400207CE8E2147CE607B47D24321498A90001 7F0518004099002056E8482C7BE400207CE8E2147CE607B47D24321498A90001
+#
+AoB Infinite TP
+0
+Medo
+B 00010000 04000000
+B 912300144E8000202F84000080036EFC39200000419C 312300144E8000202F84000080036EFC39200000419C
+#
+AoB Max Arte Count On Use
+0
+Medo
+B 00010000 04000000
+B 7C0CE83891830004EBE100A0EBA100787FE803A6EBC1 3980270F91830004EBE100A0EBA100787FE803A6EBC1
+#
+AoB Infinite Over Limit (Must Use 1 Arte Link to Gain Max + Infinite)
+0
+Medo
+B 00010000 04000000
+B EC616828FC430B6EFC0260AED00900284E80002081230000C182CC04C1A2CC08C0890028EC21202AEC616028FC430B2E 60000000FC430B6EFC0260AED00900284E80002081230000C182CC04C1A2CC08C0890028EC21202A60000000FC430B2E
+#
+AoB Freeze Play Time
+0
+Medo
+B 00010000 04000000
+B F92B00084805416D60000000FC000890C822CC38FC60065E 600000004805416D60000000FC000890C822CC38FC60065E
+B 00010000 04000000
+B F92B00104805412160000000FC000890C822CC38FCA0065E 600000004805412160000000FC000890C822CC38FCA0065E
+#
+AoB E-Core Max
+0
+xtatu
+B 00010000 04000000
+B 409D00087D204B787C0600F87CC5FE707C0428389083009C 419D00087D204B787C0600F87CC5FE707C0428389083009C
+#
+AoB TP 999 Max Not Infinite
+0
+xtatu
+B 00010000 04000000
+B 806900004E800020C08300003961FFE0C0A2D2987C691B78 40850CF84E800020C08300003961FFE0C0A2D2987C691B78
+#
+AoB SP 999 Max Not Infinite
+0
+xtatu
+B 00010000 04000000
+B 4E80002081230000886946394E8000208123 40990C5881230000886946394E8000208123
+#
+AoB HP 9999 Max Not Infinite
+0
+xtatu
+B 00010000 04000000
+B 7CC8521490DF6F4C419AFAF878630020482D274160000000 40850EC090DF6F4C419AFAF878630020482D274160000000
+#
+AoB Auto Death Enemies
+0
+xtatu
+B 00010000 04000000
+B 811F6F4C2F030000814C003C7CC8521490DF 408000102F030000814C003C7CC8521490DF
+#
+AoB 1 Hit Kills
+0
+xtatu
+B 00010000 04000000
+B 4BFFF1407D685B784BFFF9A47D0743784BFF 480000407D685B784BFFF9A47D0743784BFF
+#

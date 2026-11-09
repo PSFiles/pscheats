@@ -1,0 +1,25 @@
+# Title: Sorcery Saga The Curse of the Great Curry God
+# ID: PCSG00168
+# Region: JAP
+# Version: 1.00
+# Type: NoNpDrm
+# Note: [noaslr.skprx] Plugin
+# only for VitaCheat z06 and FW 3.65+
+# Code Author: tomberyx
+
+# PCSG00168 
+
+_V0 inf.max HP Pupuru
+$B200 00000001 0000BABE
+$0200 0012F46C 00000309
+$0200 0012F468 00000309
+
+_V0 inf.max HP [Kuu]
+$B200 00000001 0000BABE
+$0000 000F334C 00000064
+
+_V0 inf.max Money
+$B200 00000001 0000BABE
+$0200 006570A0 00012FD1
+
+

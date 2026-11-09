@@ -1,0 +1,85 @@
+Money Max
+0
+CodeFreak/PS3UserCheat
+0 42640004 3B9AC9FF
+#
+Play Day 1
+0
+CodeFreak/PS3UserCheat
+0 4264000C 00000001
+#
+A-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 42645CFC 05F5E0FF
+#
+B-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 42645D04 05F5E0FF
+#
+Money Max
+0
+CodeFreak/PS3UserCheat
+0 424FE004 3B9AC9FF
+#
+Play Day 1
+0
+CodeFreak/PS3UserCheat
+0 424FE00C 00000001
+#
+A-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 42503CFC 05F5E0FF
+#
+B-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 42503D04 05F5E0FF
+#
+Win A Race To Reach Lv 40
+0
+vosman
+0 00B548EC 3C807FFF
+#
+Money Max
+0
+CodeFreak/PS3UserCheat
+0 426B8004 3B9AC9FF
+#
+Play Day 1
+0
+CodeFreak/PS3UserCheat
+0 426B800C 00000001
+#
+A-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 426BDCFC 05F5E0FF
+#
+B-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 426BDD04 05F5E0FF
+#
+Money Max
+0
+CodeFreak/PS3UserCheat
+0 4257A004 3B9AC9FF
+#
+Play Day 1
+0
+CodeFreak/PS3UserCheat
+0 4257A00C 00000001
+#
+A-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 4257FCFC 05F5E0FF
+#
+B-SPEC EXP Max
+0
+CodeFreak/PS3UserCheat
+0 4257FD04 05F5E0FF
+#

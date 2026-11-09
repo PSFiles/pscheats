@@ -1,0 +1,69 @@
+# Naruto Shippuuden: Narutimate Storm 3
+
+name: Max Ryo on Buy
+author: Hiei-YYH
+mode: once
+w32 00BA06EC 60000000
+
+name: Infinite Health + Chakra + Decoy
+author: Medo, Hiei-YYH
+mode: once
+w32 010F6F20 39630008
+w32 010F6F24 816B0004
+w32 010F6F28 816B0000
+w32 010F6F2C 820B0014
+w32 010F6F30 920B0010
+w32 010F6F34 820B001C
+w32 010F6F38 920B0018
+w32 010F6F3C 820B002C
+w32 010F6F40 920B0028
+w32 010F6F44 4E800020
+w32 008690BC 4888DE65
+w32 008690C0 4BFFA0E5
+
+name: Fast Partner Recharge
+author: Hiei-YYH
+mode: once
+w32 008641A0 60000000
+
+name: Infinite Item Usage
+author: Hiei-YYH
+mode: once
+w32 00984338 3B7B0000
+
+name: Max Item Level After Battle
+author: Hiei-YYH
+mode: once
+w32 000AA09C 60000000
+w32 000AA054 60000000
+
+name: Infinite Items
+author: Hiei-YYH
+mode: once
+w32 00864EC0 3B600009
+
+name: Substitution Jutsu
+author: Medo
+mode: once
+w32 009801CC 60000000
+
+name: Max Chakra
+author: Medo
+mode: once
+w32 00866500 60000000
+
+name: Max Money
+author: Medo
+mode: once
+w32 00BA069C 60000000
+w32 00BA1718 60000000
+
+name: Max Level Hero On Gain
+author: Medo
+mode: once
+w32 000AA054 60000000
+
+name: Max Level Legend On Gain
+author: Medo
+mode: once
+w32 000AA09C 60000000

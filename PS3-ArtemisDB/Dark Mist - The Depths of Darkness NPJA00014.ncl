@@ -1,0 +1,13 @@
+Infinite Health
+0
+Randy97Killa
+0 00131E50 A009003C
+0 00131E54 B009003E
+#
+Infinite Special + Infinite Arrow
+0
+Randy97Killa
+0 000879DC 39290000
+0 0008ECD4 48000010
+0 0008ED00 396B0000
+#

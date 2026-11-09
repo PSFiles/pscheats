@@ -1,0 +1,21 @@
+# Title: Monster Hunter Frontier G / Monster Hunter Frontier Z
+# ID: PCSB01059
+# Region: Jap
+# Version: 1.99
+# Type: NoNpDrm
+# Note: [noaslr.skprx] Plugin
+# only for VitaCheat z06 and FW 3.65+
+# Code Author: tomberyx
+
+# PCSG00350
+
+_V0 Game Speed 2x [hold-R]
+$B200 00000001 0000BABE
+$C202 00000001 00000200
+$0000 0000003C 0000BABE
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+Infinite HP
+0
+CodeUnique3
+0 00479214 60000000
+#
+Infinite Weapon
+0
+CodeUnique3
+0 006E37A0 39290000
+#
+1 Hit Kill
+0
+CodeUnique3
+0 008485E8 38000000
+#
+Infinite HP
+0
+CodeUnique3
+0 004796EC 60000000
+#
+Infinite Weapon
+0
+CodeUnique3
+0 006E3C78 60000000
+#
+1 Hit Kill
+0
+CodeUnique3
+0 00849304 38000000
+#
+Infinite HP
+0
+CodeUnique3
+0 00479CDC 60000000
+#
+Infinite Weapon
+0
+CodeUnique3
+0 006E4288 60000000
+#
+1 Hit Kill
+0
+CodeUnique3
+0 00849924 38000000
+#
+Dev Menu
+0
+dron_3, HdHereidme
+0 00737E4C 38000001
+0 00737E50 980B2163
+#
+AoB Dev Menu
+0
+dron_3, HdHereidme
+B 00010000 04000000
+B 2F800000419E00A4839E8078 38000001980B2163839E8078
+#

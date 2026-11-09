@@ -1,0 +1,21 @@
+9,999,999 Ryo Once Win in Ultimate Adventure
+0
+CodeFreak/PS3UserCheat
+0 0056B6F4 60000000
+#
+999,999 SP Once Win
+0
+CodeFreak/PS3UserCheat
+0 0056B724 901E93EC
+#
+Play Time 999:59:59 Once Win in Ultimate Adventure
+0
+CodeFreak/PS3UserCheat
+0 0056B71C 93DE93E8
+#
+AoB 9,999,999 Ryo
+0
+CodeFreak/PS3UserCheat
+B 00010000 04000000
+B 7C0022147F804800409D0008 7C0022144800000448000004
+#

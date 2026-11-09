@@ -1,0 +1,304 @@
+Infinite Health (Disable Invincibility)
+0
+dron_3
+0 0107B8F0 3C605000
+0 0107B8F4 907F00C0
+#
+Invincibility (Disable Infinite Health)
+0
+dron_3
+0 0107B8F0 38603FA0
+0 0107B8F4 B07F00B4
+#
+Infinite Ammo
+0
+dron_3
+0 00EE1620 3BA003E7
+#
+No Reload
+0
+dron_3
+0 00EED018 38E00063
+#
+Infinite Special Ability
+0
+dron_3
+0 0101D2A4 C03F0034
+#
+No Wanted Level
+0
+dron_3
+0 00F47AFC 39600000
+#
+Crashproof Player Vehicle Engine
+0
+dron_3
+0 016799D8 54E49F7E
+0 016799DC 2C040000
+0 016799E0 38803000
+0 016799E4 40820008
+0 016799E8 38803FA0
+0 016799EC B08300B4
+0 016799F0 C06300C0
+0 016799F4 4B71E700
+0 00D980F0 488E18E8
+#
+Max Money After Tossing A Dollar In The Strip Club
+0
+dron_3
+0 016799B4 2C0800B8
+0 016799B8 40820018
+0 016799BC 2C0A0003
+0 016799C0 40820010
+0 016799C4 3FE03B9B
+0 016799C8 3BFFCA00
+0 016799CC 93FEFFFC
+0 016799D0 607F0000
+0 016799D4 4BDBBEDC
+0 014358AC 48244108
+#
+No Wanted Level
+0
+dron_3
+0 00F8E7AC 39600000
+#
+Infinite Ammo
+0
+dron_3
+0 00F260E0 3BA003E7
+#
+No Reload
+0
+dron_3
+0 00F31C98 38E00063
+#
+Infinite Health (Disable Invincibility)
+0
+dron_3
+0 010C89B0 3C605000
+0 010C89B4 907F00C0
+#
+Invincibility (Disable Infinite Health)
+0
+dron_3
+0 010C89B0 38603FA0
+0 010C89B4 B07F00B4
+#
+Infinite Special Ability
+0
+dron_3
+0 0106709C C03F0034
+#
+No Wanted Level
+0
+dron_3
+0 00F8EC0C 39600000
+#
+Infinite Ammo
+0
+dron_3
+0 00F26540 3BA003E7
+#
+No Reload
+0
+dron_3
+0 00F320F8 38E00063
+#
+Infinite Health (Disable Invincibility)
+0
+dron_3
+0 010C8E10 3C605000
+0 010C8E14 907F00C0
+#
+Invincibility (Disable Infinite Health)
+0
+dron_3
+0 010C8E10 38603FA0
+0 010C8E14 B07F00B4
+#
+Infinite Special Ability
+0
+dron_3
+0 010674FC C03F0034
+#
+No Wanted Level
+0
+dron_3
+0 00F8F21C 39600000
+#
+Infinite Ammo
+0
+dron_3
+0 00F26B50 3BA003E7
+#
+No Reload
+0
+dron_3
+0 00F32708 38E00063
+#
+Invincibility (Disable Infinite Health)
+0
+dron_3
+0 010C9420 38603FA0
+0 010C9424 B07F00B4
+#
+Infinite Special Ability
+0
+dron_3
+0 01067B0C C03F0034
+#
+No Wanted Level
+0
+dron_3
+0 00F9520C 39600000
+#
+Unlimited Ammo With Bigger Clip
+0
+dron_3
+0 00F2C910 3BA07FFF
+#
+Real God Mode
+0
+dron_3
+0 010CF260 38607FFF
+0 010CF264 B07F00B4
+#
+Infinite Special Ability
+0
+dron_3
+0 0106CF2C C03F0034
+#
+Infinite Ammo
+0
+dron_3
+0 00EE1574 907E0010
+0 00EECF6C B0BE0052
+#
+No Wanted Level
+0
+dron_3
+0 00F47A4C 7D6B5A78
+#
+No Wanted Level
+0
+dron_3
+0 00F5879C 39600000
+#
+Infinite Ammo
+0
+dron_3
+0 00EF1C90 3BA003E7
+#
+No Reload
+0
+dron_3
+0 00EFD688 38E00063
+#
+Infinite Health (Disable Invincibility)
+0
+dron_3
+0 0108E2E0 3C605000
+0 0108E2E4 907F00C0
+#
+Invincibility (Disable Infinite Health)
+0
+dron_3
+0 0108E2E0 38603FA0
+0 0108E2E4 B07F00B4
+#
+Infinite Special Ability
+0
+dron_3
+0 0102FC94 C03F0034
+#
+Max Money After Tossing A Dollar In A Strip Club
+0
+dron_3
+0 0169133C 2C0800B8
+0 01691340 40820018
+0 01691344 2C0A0003
+0 01691348 40820010
+0 0169134C 3FE03B9B
+0 01691350 3BFFCA00
+0 01691354 93FEFFFC
+0 01691358 607F0000
+0 0169135C 4BDBB614
+0 0144C96C 482449D0
+#
+Crashproof Player Vehicle Engine
+0
+dron_3
+0 01691360 54E49F7E
+0 01691364 2C040000
+0 01691368 38803000
+0 0169136C 40820008
+0 01691370 38803FA0
+0 01691374 B08300B4
+0 01691378 C06300C0
+0 0169137C 4B715F28
+0 00DA72A0 488EA0C0
+#
+No Wanted Level
+0
+dron_3
+0 00FA01CC 39600000
+#
+Infinite Ammo
+0
+dron_3
+0 00F37530 3BA003E7
+#
+No Reload
+0
+dron_3
+0 00F430E8 38E00063
+#
+Infinite Health (Disable Invincibility)
+0
+dron_3
+0 010DC120 3C605000
+0 010DC124 907F00C0
+#
+Invincibility (Disable Infinite Health)
+0
+dron_3
+0 010DC120 38603FA0
+0 010DC124 B07F00B4
+#
+Infinite Special Ability
+0
+dron_3
+0 0107A80C C03F0034
+#
+No Wanted Level
+0
+dron_3
+0 00FA0BAC 39600000
+#
+Infinite Ammo
+0
+dron_3
+0 00F37F10 3BA003E7
+#
+No Reload
+0
+dron_3
+0 00F43AC8 38E00063
+#
+Infinite Health (Disable Invincibility)
+0
+dron_3
+0 010DCB00 3C605000
+0 010DCB04 907F00C0
+#
+Invincibility (Disable Infinite Health)
+0
+dron_3
+0 010DCB00 38603FA0
+0 010DCB04 B07F00B4
+#
+Infinite Special Ability
+0
+dron_3
+0 0107B1EC C03F0034
+#

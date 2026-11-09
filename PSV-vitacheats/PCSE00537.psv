@@ -1,0 +1,31 @@
+# Title: Jetpack Joyride Deluxe
+# ID: PCSE00537
+# Region: US
+# Version: 1.02
+# Type: NoNpDrm
+# Note: [noaslr.skprx] Plugin
+# only for VitaCheat z06 and FW 3.65+
+# Code Author: tomberyx
+
+# PCSE00537 
+
+_V0 inf.max Coins [Slot-Machine]
+$B200 00000001 0000BABE
+$0000 00020410 00000007
+
+_V0 inf.max Money
+$B200 00000001 0000BABE
+$3201 000F8C14 00000038
+$0000 00000000 000BDE31
+
+_V0 Start with 1000 coins (If Zero)
+$D201 81A20518 00000000
+$0200 81A20518 000003E8
+
+_V0 Start with 1000 coins (If Zero)
+$D201 848C6A54 00000000
+$0200 848C6A54 000003E8
+
+_V0 Start with 1000 coins (If Zero)
+$D201 85983CE8 00000000
+$0200 85983CE8 000003E8

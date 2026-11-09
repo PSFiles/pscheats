@@ -1,0 +1,42 @@
+# LEGO Batman 2: DC Super Heroes
+
+name: 9,223,372,036,854,725,800 Money
+score NPUB30807 01.01: 75 1+ 0-
+author: eltyran84
+mode: once
+w32 34B7DEC8 7FFFFFFF working-val=00000000:1
+w32 34B7DECC FFFFFFF8 working-val=00000000:1
+
+name: 500,000 For Every Mission
+author: eltyran84
+mode: once
+w32 00FCDDEC EE6B2800
+w32 00FD2424 EE6B2800
+
+name: 10 Minikits For Every Mission
+author: eltyran84
+mode: once
+w32 00FD0238 0000000A
+w32 00FD023C 0000000A
+w32 00FD0240 0000000A
+w32 00FD31B4 0000000A
+w32 00FD31B8 0000000A
+
+name: 250 Gold Bricks
+score NPUB30807 01.01: 25 0+ 1-
+author: eltyran84
+mode: once
+w8 00E63910 FA
+w8 34B7DED2 FA
+w8 34DB4A82 FA
+
+name: Max Studs On Gain
+author: dron_3, solidsnake
+mode: once
+w32 001FB278 60000000
+
+name: AoB Max Studs On Gain
+score NPUB30807 01.01: 50 1+ 1-
+author: dron_3, solidsnake
+mode: once
+aob 4081000860A4000054C5063E2C050000418200203CA0 6000000060A4000054C5063E2C050000418200203CA0

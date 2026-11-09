@@ -1,0 +1,101 @@
+Infinite Health
+0
+Hiei-YYH
+0 00B00424 806448FC
+0 00B00428 90644900
+0 00B0042C 808548FC
+0 00B00440 480001D4
+#
+No Visual Damage
+0
+Hiei-YYH
+0 009CBA2C 807C00C0
+0 009CBA30 907C00BC
+0 009CBA34 60000000
+#
+Maximum Visual Damage
+0
+Hiei-YYH
+0 009CBA2C 38600000
+0 009CBA30 907C00BC
+0 009CBA34 48000030
+#
+Infinite Character Upgrade Points
+0
+Hiei-YYH
+0 00AF1548 7C7A1B78
+#
+Infinite Tech Upgrade Points
+0
+Hiei-YYH
+0 00AF9204 7C791B78
+#
+Remove Upgrade Available on Screen
+0
+Hiei-YYH
+0 00AFC204 38A00000
+#
+Infinite Health
+0
+GuitarMan
+0 00B5C220 90A44900
+#
+Invincibility
+0
+GuitarMan
+0 00A3F858 38600001
+#
+1,000 Combo
+0
+GuitarMan
+0 00ADBDDC 386003E8
+0 00ADBDE8 60000000
+0 00ADBD18 392003E8
+#
+Can Upgrade Tech Upgrade
+0
+GuitarMan
+0 00FCF2B4 60000000
+#
+Can Upgrade Character Upgrade
+0
+GuitarMan
+0 00AF13D0 60000000
+#
+Infinite Health
+0
+Hiei-YYH
+0 00AF97BC 806448FC
+0 00AF97C0 90644900
+0 00AF97C4 808548FC
+0 00AF97D8 480001D4
+#
+No Visual Damage
+0
+Hiei-YYH
+0 009C4DC4 807C00C0
+0 009C4DC8 907C00BC
+0 009C4DCC 60000000
+#
+Maximum Visual Damage
+0
+Hiei-YYH
+0 009C4DC4 38600000
+0 009C4DC8 907C00BC
+0 009C4DCC 48000030
+#
+Infinite Character Upgrade Points
+0
+Hiei-YYH
+0 00AEA8E0 7C7A1B78
+#
+Infinite Tech Upgrade Points
+0
+Hiei-YYH
+0 00AF259C 7C791B78
+#
+Remove Upgrade Available on Screen
+0
+Hiei-YYH
+0 00AF559C 38A00000
+#

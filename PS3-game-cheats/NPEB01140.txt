@@ -1,0 +1,81 @@
+# Tekken Tag Tournament 2
+
+name: Max Money On Buy (May Give Max On Gain)
+score BLES01702 01.01: 50 1+ 1-
+score BLES01702 01.03: 62 2+ 1-
+author: Medo
+mode: once
+w32 00658B14 409D004C working-val=409D0008:1,813A0000:2
+w32 00658B60 3C007FFF working-val=11625A8C:2,990B0006:1
+
+name: Max Combot Money On Buy
+score BLES01702 01.03: 75 1+ 0-
+author: Medo
+mode: once
+w32 00175D2C 3C007FFF working-val=83C2DF8C:1
+
+name: Max Wins P2
+author: Medo
+mode: once
+w32 00319A0C 60000000
+
+name: Max Loss P2
+author: Medo
+mode: once
+w32 00319A3C 60000000
+
+name: CPU Do Not Attack
+author: xtatu
+mode: once
+w32 000BD88C 409E0110
+w32 000BD9C8 409D0048
+w32 000BDA24 409E0010
+
+name: Disable CPU Block
+author: xtatu
+mode: once
+w32 000DC6E8 419D008C
+
+name: 1P Invincible + Hitanywhere Solo Mode
+author: xtatu
+mode: once
+w32 000D6998 7F95B800
+w32 000D699C 409DFD04
+
+name: 1P Invincible + Hitanywhere Tag Mode
+score BLES01702 01.03: 75 1+ 0-
+author: xtatu
+mode: once
+w32 000C1670 70800010 working-val=4826DEF1:1
+w32 000C1818 4BFFFEAC working-val=7C6B1B78:1
+
+name: CPU Do Not Attack [01.01]
+author: xtatu
+mode: once
+w32 000BDAD8 409E010C
+w32 000BDC10 409D0048
+w32 000BDC6C 409E0010
+
+name: Disable CPU Block [01.01]
+author: xtatu
+mode: once
+w32 000DC6E8 419D008C
+
+name: Multi Hit 1P [01.03]
+score BLES01702 01.03: 75 1+ 0-
+score BLUS31002 01.03: 75 1+ 0-
+author: xtatu
+mode: once
+w32 000D58DC 409EFFEC working-val=90DD002C:2
+
+name: Player 1 Invincible And Can Hit From Anywhere
+score BLUS31002 01.03: 75 1+ 0-
+author: xtatu
+mode: once
+w32 000C2FD4 70800010 working-val=EBA100A8:1
+w32 000C217C 4BFFFEAC working-val=4200FEAC:1
+
+name: Disable Block
+author: xtatu
+mode: once
+w32 000DD888 419D008C

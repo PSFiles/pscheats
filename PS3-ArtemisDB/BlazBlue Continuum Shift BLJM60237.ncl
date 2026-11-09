@@ -1,0 +1,6 @@
+Timer 99
+0
+CodeFreak/PS3UserCheat
+0 00F5C6B0 00001733
+0 00F5C6B4 00000063
+#

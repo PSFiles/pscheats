@@ -1,0 +1,10 @@
+Money Max
+0
+CodeFreak/PS3UserCheat
+0 10355298 05F5E0FF
+#
+Experience Max
+0
+CodeFreak/PS3UserCheat
+0 103529A0 0098967F
+#

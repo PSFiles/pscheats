@@ -1,0 +1,22 @@
+Infinite Health
+0
+dron_3
+0 00731E88 38000080
+0 00731E8C 900302A4
+#
+AoB Infinite Health
+0
+dron_3
+B 00010000 04000000
+B 800302A47C0007B4 38000080900302A4
+#
+Debug Menu (R1 + Start)
+0
+dron_3, Joey
+0 0121DBAC 38600000
+#
+Debug Menu (PSXPlace)
+0
+dron_3, Joey
+0 0121DBAC 38600000
+#

@@ -1,0 +1,21 @@
+# Title: Dragon Fantasy Book II
+# ID: PCSB01059
+# Region: US
+# Version: 1.02
+# Type: NoNpDrm
+# Note: [noaslr.skprx] Plugin
+# only for VitaCheat z06 and FW 3.65+
+# Code Author: tomberyx
+
+# PCSB01059 
+
+_V0 Game Speed 2x
+$B200 00000001 0000BABE
+$0000 00000000 00000000
+$3201 0000241C 00000034
+$0000 00000000 00000000
+
+_V0 inf.max Money
+$B200 00000001 0000BABE
+$3201 000024A8 00000054
+$0000 00000000 00010000

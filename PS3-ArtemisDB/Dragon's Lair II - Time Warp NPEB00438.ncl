@@ -1,0 +1,17 @@
+Memory Infinite Life
+0
+jgduff1
+0 001E87A8 00000005
+#
+ASM Infinite Life
+0
+jgduff1
+0 000593B0 39290000
+0 000593B8 60000000
+#
+ASM Infinite Life
+0
+jgduff1
+0 00059388 39290000
+0 00059390 60000000
+#

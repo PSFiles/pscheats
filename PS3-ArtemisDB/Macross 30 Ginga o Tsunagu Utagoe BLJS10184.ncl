@@ -1,0 +1,135 @@
+Infinite Bullets
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 002C04F4 60000000
+#
+Infinite Booster
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 00255D00 3BBD0000
+#
+Max Money
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 004D4820 2F9D0000
+#
+99 Items On Gain
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 004DD3B0 38000063
+#
+Infinite Anti-Gauge
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 0023BD5C 2F890000
+#
+Infinite SP Gauge
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 0024B1F8 30000000
+#
+Items Do Not Reduce
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 004DE5C8 60000000
+#
+No Maximum TP On Planes
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 0045BBCC 60000000
+#
+Max Additional Equipment
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 004668BC 392000FF
+#
+Infinite SP
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 0024B1F8 30000000
+0 002335B0 2F800000
+#
+Infinite Items
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 004D45C8 60000000
+#
+Strengthening Equipment
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 004668BC 392000FF
+#
+All Items In Item Box
+0
+games24.blog.fc2.com/blog-entry-130.html
+0 32B6FF52 0000
+0 32B70318 0001
+0 32B706DE 0002
+0 32B70AA4 0003
+0 32B70E6A 0004
+0 32B71230 0005
+0 32B715F6 0006
+0 32B719BC 0007
+0 32B6FF56 03E7
+0 32B7031C 03E7
+0 32B706E2 03E7
+0 32B70AA8 03E7
+0 32B70E6E 03E7
+0 32B71234 03E7
+0 32B715FA 03E7
+0 32B719C0 03E7
+#
+AoB Infinite Bullets
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 7C0B00502F800000419C00AC900A0270 600000002F800000419C00AC900A0270
+#
+AoB Infinite Booster
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 7FBD02142F9D0707419D007038600001 3BBD00002F9D0707419D007038600001
+#
+AoB Max Money
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 7F9D480093BF005C409D0020913F005C 2F9D000093BF005C409D0020913F005C
+#
+AoB 99 Items On Gain
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 7C1C021480A21AC83B800000901E0004 3800006380A21AC83B800000901E0004
+#
+AoB Infinite Anti-Gauge
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 7F890000912B0004409DF124900B0004 2F890000912B0004409DF124900B0004
+#
+AoB Infinite SP Gauge
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 7C1F00502F800000901E4490409C000C 300000002F800000901E4490409C000C
+#
+AoB Items Do Not Reduce
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 7C1D0050900A00044BFFFEC42F840000 60000000900A00044BFFFEC42F840000
+#
+AoB No Maximum TP On Planes
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 419D0A3489390000392900015520063E 6000000089390000392900015520063E
+#
+AoB Strengthening Equipment
+0
+games24.blog.fc2.com/blog-entry-130.html
+B 00010000 04000000
+B 392900015520063E993E00007F805840 392000FF5520063E993E00007F805840
+#

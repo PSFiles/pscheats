@@ -1,0 +1,148 @@
+Infinite HP
+0
+dron_3
+0 002E3000 60000000
+0 003C3614 60000000
+#
+Invincibility
+0
+dron_3
+0 003C1060 60000000
+0 003C1084 60000000
+#
+Take Item In Inventory To Maximize
+0
+dron_3
+0 002000E8 A01C2D76
+0 002000EC B01C2D74
+#
+AoB Infinite HP
+0
+dron_3
+B 00010000 04000000
+B 7C1D00502F890000B01E33BE 600000002F890000B01E33BE
+B 00010000 04000000
+B 3929FFFEB17A00D07D200734 60000000B17A00D07D200734
+#
+AoB Invincibility
+0
+dron_3
+B 00010000 04000000
+B 3929FFFF7D200734B13A0064 600000007D200734B13A0064
+B 00010000 04000000
+B 7C004A147C090734B01A0066 600000007C090734B01A0066
+#
+AoB Take Item In Inventory To Maximize
+0
+dron_3
+B 00010000 04000000
+B A01C2D747C0007342F800000 A01C2D76B01C2D742F800000
+#
+Infinite Items
+0
+dron_3
+0 00291FB8 38090001
+#
+Infinite HP
+0
+dron_3
+0 002837C0 60000000
+0 00289C78 60000000
+#
+Memory Infinite Health
+0
+jgduff1
+0 398C9A94 00640064
+#
+ASM Infinite Health
+0
+jgduff1
+0 00387B90 60000000
+0 00387B88 60000000
+#
+Memory Invincible When Enemy Hit You 1 Time
+0
+jgduff1
+0 398C6BF0 00170064
+0 398C6BF4 FF010000
+#
+ASM Invincible When Enemy Hit You 1 Time
+0
+jgduff1
+0 00391130 60000000
+0 00391128 39290000
+#
+Memory Inventory x999 On Drop + Use
+0
+jgduff1
+0 398C8330 0015
+#
+ASM Inventory x999 On Drop + Use
+0
+jgduff1
+0 00038554 392903E7
+#
+Memory Infinite Items + Ammo + Money + Construction In Inventory
+0
+jgduff1
+0 398C6F98 03E7
+#
+ASM Infinite Items + Ammo + Money + Construction In Inventory
+0
+jgduff1
+0 003B2DFC 38090000
+0 003B2E04 60000000
+#
+ASM Infinite Health
+0
+jgduff1
+0 00387B88 60000000
+0 00387B90 60000000
+#
+ASM Invincible When Enemy Hit You 1 Time
+0
+jgduff1
+0 00391128 39290000
+0 00391130 60000000
+#
+ASM Infinite Health
+0
+jgduff1
+0 00387600 60000000
+0 00387608 60000000
+#
+ASM Invincible When Enemy Hit You 1 Time
+0
+jgduff1
+0 00393814 39290000
+0 0039381C 60000000
+#
+ASM Inventory x999 On Drop + Use
+0
+jgduff1
+0 00038890 392903E7
+#
+ASM Infinite Items + Ammo + Money + Construction In Inventory
+0
+jgduff1
+0 003B4FD8 38090000
+0 003B4FE0 60000000
+#
+ASM Infinite Health
+0
+jgduff1
+0 00387938 60000000
+0 00387940 60000000
+#
+ASM Invincible When Enemy Hit You 1 Time
+0
+jgduff1
+0 00390ED8 39290000
+0 00390EE0 60000000
+#
+ASM Infinite Items + Ammo + Money + Construction In Inventory
+0
+jgduff1
+0 003B2BAC 38090000
+0 003B2BB4 60000000
+#

@@ -1,0 +1,11 @@
+Infinite Electricity
+0
+Hiei-YYH
+0 0015D190 EDAD002A
+#
+Infinite Teleport + Fly
+0
+Hiei-YYH
+0 00AB43F0 4A000000
+0 00AB43EC 4A000000
+#
