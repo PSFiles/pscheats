@@ -264,6 +264,7 @@ h1 { margin: 0; font-size: 1.5rem; letter-spacing: -0.02em; }
 .badge.ps5 { color: #9ff0c7; border-color: rgba(53, 208, 127, 0.36); background: rgba(53, 208, 127, 0.1); }
 .badge.psv { color: #a5f0fb; border-color: rgba(34, 194, 214, 0.36); background: rgba(34, 194, 214, 0.1); }
 .badge.serial { text-transform: uppercase; }
+.badge.region { color: var(--muted-2); font-weight: 600; }
 .badge.src { color: var(--muted-2); font-weight: 600; }
 
 .more { display: grid; place-items: center; padding: 1.4rem 0; color: var(--muted-2); font-size: 0.8rem; }

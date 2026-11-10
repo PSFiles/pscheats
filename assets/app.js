@@ -57,8 +57,8 @@
     return node;
   }
 
-  const nf = new Intl.NumberFormat('pt-BR');
-  const collator = new Intl.Collator('pt-BR', { sensitivity: 'base', numeric: true });
+  const nf = new Intl.NumberFormat('en-US');
+  const collator = new Intl.Collator('en-US', { sensitivity: 'base', numeric: true });
 
   function badge(text, cls) {
     return h('span', { class: 'badge ' + (cls || ''), text });
@@ -140,15 +140,15 @@
 
     if (!out.length) {
       $status.textContent = S.query || S.platforms.size
-        ? 'Nenhum jogo encontrado com esses filtros.'
-        : 'Nenhum cheat disponível.';
+        ? 'No games match these filters.'
+        : 'No cheat codes available.';
       renderMore();
       return;
     }
 
-    $status.textContent = `${nf.format(out.length)} ${out.length === 1 ? 'jogo' : 'jogos'}` +
-      (S.query ? ` para “${S.query}”` : '') +
-      (S.platforms.size ? ` em ${[...S.platforms].sort().join(', ')}` : '');
+    $status.textContent = `${nf.format(out.length)} ${out.length === 1 ? 'game' : 'games'}` +
+      (S.query ? ` for “${S.query}”` : '') +
+      (S.platforms.size ? ` on ${[...S.platforms].sort().join(', ')}` : '');
     renderChunk();
   }
 
@@ -170,13 +170,14 @@
     $more.append(h('button', {
       type: 'button',
       onclick: () => renderChunk(),
-      text: `Carregar mais (${nf.format(rest)} restantes)`,
+      text: `Load more (${nf.format(rest)} left)`,
     }));
   }
 
   function renderCard({ game, names }) {
     const sub = [badge(game.p, game.p.toLowerCase())];
     if (game.s) sub.push(badge(game.s, 'serial'));
+    if (game.r) sub.push(badge(game.r, 'region'));
     for (const src of game.f) sub.push(badge(srcLabel(src), 'src'));
 
     const kids = [
@@ -220,7 +221,7 @@
     $drawerTitle.textContent = game ? game.t : id;
     $drawerMeta.textContent = '';
     $drawerBody.textContent = '';
-    $drawerBody.append(h('div', { class: 'spinner', text: 'Carregando…' }));
+    $drawerBody.append(h('div', { class: 'spinner', text: 'Loading…' }));
     if (game) $drawerMeta.append(...metaNodes(game));
     if (!location.hash.startsWith('#g=')) history.replaceState(null, '', '#g=' + encodeURIComponent(id));
 
@@ -236,13 +237,14 @@
       renderDetail(detail);
     } catch (err) {
       $drawerBody.textContent = '';
-      $drawerBody.append(h('p', { class: 'status', text: 'Não foi possível carregar os cheats deste jogo (' + err.message + ').' }));
+      $drawerBody.append(h('p', { class: 'status', text: 'Could not load the cheats for this game (' + err.message + ').' }));
     }
   }
 
   function metaNodes(game) {
     const nodes = [badge(game.p, game.p.toLowerCase())];
     if (game.s) nodes.push(badge(game.s, 'serial'));
+    if (game.r) nodes.push(badge(game.r, 'region'));
     for (const v of game.v || []) nodes.push(badge('v' + v));
     return nodes;
   }
@@ -251,6 +253,7 @@
     $drawerTitle.textContent = detail.title || detail.serial || detail.id;
     $drawerMeta.textContent = '';
     if (detail.serial) $drawerMeta.append(badge(detail.serial, 'serial'));
+    if (detail.region) $drawerMeta.append(badge(detail.region, 'region'));
     $drawerMeta.append(badge(detail.platform, detail.platform.toLowerCase()));
     $drawerMeta.append(h('span', { class: 'badge src', text: `${nf.format(detail.cheats.length)} cheats` }));
 
@@ -273,14 +276,14 @@
       const btn = h('button', {
         type: 'button',
         class: 'copy',
-        text: 'Copiar',
-        title: 'Copiar os códigos',
+        text: 'Copy',
+        title: 'Copy the codes',
         onclick: async () => {
           try {
             await navigator.clipboard.writeText(copyLines);
-            btn.textContent = 'Copiado';
+            btn.textContent = 'Copied';
             btn.classList.add('done');
-            setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('done'); }, 1400);
+            setTimeout(() => {            btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1400);
           } catch {
             const ta = h('textarea', { style: 'position:fixed;opacity:0' });
             ta.value = copyLines;
@@ -288,9 +291,9 @@
             ta.select();
             document.execCommand('copy');
             ta.remove();
-            btn.textContent = 'Copiado';
+            btn.textContent = 'Copied';
             btn.classList.add('done');
-            setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('done'); }, 1400);
+            setTimeout(() => {            btn.textContent = 'Copy'; btn.classList.remove('done'); }, 1400);
           }
         },
       });
@@ -304,19 +307,19 @@
           copyLines ? btn : null,
         ),
         copyLines ? h('pre', { class: 'codes', text: copyLines }) : null,
-        c.a ? h('p', { class: 'cheat-author', text: 'por ' + c.a }) : null,
+        c.a ? h('p', { class: 'cheat-author', text: 'by ' + c.a }) : null,
       );
     };
 
     if (grouped) {
       for (const v of versions) {
         const items = detail.cheats.filter((c) => c.v === v);
-        $drawerBody.append(h('h3', { class: 'group-title', text: `Versão ${v} · ${items.length} cheats` }));
+        $drawerBody.append(h('h3', { class: 'group-title', text: `Version ${v} · ${items.length} cheats` }));
         for (const c of items) $drawerBody.append(renderCheat(c));
       }
       const rest = detail.cheats.filter((c) => !c.v);
       if (rest.length) {
-        $drawerBody.append(h('h3', { class: 'group-title', text: `Sem versão · ${rest.length} cheats` }));
+        $drawerBody.append(h('h3', { class: 'group-title', text: `No version · ${rest.length} cheats` }));
         for (const c of rest) $drawerBody.append(renderCheat(c));
       }
     } else {
@@ -350,7 +353,7 @@
       index = await res.json();
     } catch (err) {
       $stats.textContent = '';
-      $status.textContent = 'Não foi possível carregar o índice de cheats (' + err.message + '). Rode "node tools/build-site.mjs" ou use o site publicado.';
+      $status.textContent = 'Could not load the cheat index (' + err.message + '). Run "node tools/build-site.mjs" or use the published site.';
       return;
     }
 
@@ -359,7 +362,7 @@
       const names = g.n || [];
       return {
         ...g,
-        _hay: `${g.t} ${g.s} ${g.i}`.toLowerCase(),
+        _hay: `${g.t} ${g.s} ${g.i} ${g.r || ''}`.toLowerCase(),
         _names: names.map((n) => n.toLowerCase()),
       };
     });
@@ -372,8 +375,8 @@
       el.textContent = n == null ? '' : nf.format(n);
     }
 
-    $stats.textContent = `${nf.format(S.totals.games)} jogos · ${nf.format(S.totals.cheats)} cheats` +
-      (index.generated ? ' · ' + new Date(index.generated).toLocaleDateString('pt-BR') : '');
+    $stats.textContent = `${nf.format(S.totals.games)} games · ${nf.format(S.totals.cheats)} cheats` +
+      (index.generated ? ' · ' + new Date(index.generated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '');
 
     applyFilters();
 

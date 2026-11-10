@@ -52,6 +52,22 @@ function serialOf(text) {
   return m ? m[1] : '';
 }
 
+/** Region letter used by Sony serials: BLES/NPEB = EUR, BLUS/NPUB = USA, BLJM/NPJB = JPN, BLAS/BCAS = ASIA, BLKS = KOR. */
+const REGION_BY_LETTER = { U: 'USA', E: 'EUR', J: 'JPN', A: 'ASIA', K: 'KOR', H: 'ASIA', G: 'JPN', B: 'EUR', C: 'EUR', D: 'EUR', F: 'EUR' };
+// Japan disc ids, where the region letter is not in the usual position.
+const JPN_DISC = new Set(['SLPM', 'SLPS', 'SCPS', 'SLKA']);
+
+/** Region of a serial; CUSA/PPSA title ids are region-free, so they return an empty string. */
+function regionOf(serial) {
+  const s = String(serial || '').toUpperCase();
+  if (s.length < 4) return '';
+  const prefix = s.slice(0, 4);
+  if (prefix === 'CUSA' || prefix === 'PPSA') return '';
+  if (JPN_DISC.has(prefix)) return 'JPN';
+  if (prefix.startsWith('PCS')) return REGION_BY_LETTER[s[3]] || '';
+  return REGION_BY_LETTER[s[2]] || '';
+}
+
 function hex(v) {
   return String(v == null ? '' : v).toUpperCase().replace(/[^0-9A-F]/g, '');
 }
@@ -214,7 +230,7 @@ function parseHenJson(text) {
       for (const l of mod.code.split(/\r?\n/)) if (l.trim()) lines.push(l.trim());
     }
     cheats.push({
-      n: mod.name || '(sem nome)',
+      n: mod.name || '(unnamed)',
       a: credits,
       d: mod.description || mod.desc || '',
       t: mod.type || '',
@@ -255,7 +271,7 @@ function main() {
   const stats = { files: 0, cheats: 0, skipped: 0, errors: [] };
   const bySource = {};
 
-  const collator = new Intl.Collator('pt-BR', { sensitivity: 'base', numeric: true });
+  const collator = new Intl.Collator('en-US', { sensitivity: 'base', numeric: true });
 
   for (const src of SOURCES) {
     const files = readSource(src);
@@ -314,12 +330,13 @@ function main() {
       let game = games.get(key);
       if (!game) {
         game = {
-          key, id, platform: src.platform, serial, title: title || serial || file,
+          key, id, platform: src.platform, serial, region: regionOf(serial), title: title || serial || file,
           sources: [], files: [], cheats: [], seen: new Set(), versions: new Set(),
         };
         games.set(key, game);
       }
       if (title && (!game.title || title.length > game.title.length)) game.title = title;
+      if (!game.region) game.region = regionOf(serial);
       if (!game.sources.includes(src.id)) game.sources.push(src.id);
       if (version) game.versions.add(version);
 
@@ -337,7 +354,7 @@ function main() {
         if (game.seen.has(ck)) continue;
         game.seen.add(ck);
         game.cheats.push({
-          n: String(c.n || '(sem nome)').trim(),
+          n: String(c.n || '(unnamed)').trim(),
           a: String(c.a || '').trim(),
           d: String(c.d || '').trim(),
           t: String(c.t || '').trim(),
@@ -372,6 +389,7 @@ function main() {
       i: g.id,
       t: g.title,
       s: g.serial,
+      r: g.region,
       p: g.platform,
       c: g.cheats.length,
       f: g.sources,
@@ -383,6 +401,7 @@ function main() {
       id: g.id,
       title: g.title,
       serial: g.serial,
+      region: g.region,
       platform: g.platform,
       files: g.files,
       cheats: g.cheats,
