@@ -56,6 +56,8 @@ function serialOf(text) {
 const REGION_BY_LETTER = { U: 'USA', E: 'EUR', J: 'JPN', A: 'ASIA', K: 'KOR', H: 'ASIA', G: 'JPN', B: 'EUR', C: 'EUR', D: 'EUR', F: 'EUR' };
 // Japan disc ids, where the region letter is not in the usual position.
 const JPN_DISC = new Set(['SLPM', 'SLPS', 'SCPS', 'SLKA']);
+// PS Vita ids use their own letters: PCSA is the Americas, not Asia.
+const VITA_REGION_BY_LETTER = { A: 'USA', B: 'EUR', C: 'EUR', D: 'EUR', E: 'EUR', F: 'EUR', G: 'JPN', H: 'ASIA', K: 'KOR' };
 
 /** Region of a serial; CUSA/PPSA title ids are region-free, so they return an empty string. */
 function regionOf(serial) {
@@ -64,7 +66,7 @@ function regionOf(serial) {
   const prefix = s.slice(0, 4);
   if (prefix === 'CUSA' || prefix === 'PPSA') return '';
   if (JPN_DISC.has(prefix)) return 'JPN';
-  if (prefix.startsWith('PCS')) return REGION_BY_LETTER[s[3]] || '';
+  if (prefix.startsWith('PCS')) return VITA_REGION_BY_LETTER[s[3]] || '';
   return REGION_BY_LETTER[s[2]] || '';
 }
 
