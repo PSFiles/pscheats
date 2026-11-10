@@ -29,10 +29,22 @@
     </form>
 
     <div class="controls">
-      <div class="chips" id="platforms" role="group" aria-label="Filtrar por plataforma">
-        <button type="button" class="chip" data-p="PS3" aria-pressed="false">PS3</button>
-        <button type="button" class="chip" data-p="PS4" aria-pressed="false">PS4</button>
-        <button type="button" class="chip" data-p="PSV" aria-pressed="false">Vita</button>
+      <div class="filters" id="platforms" role="group" aria-label="Filtrar por plataforma">
+        <button type="button" class="chip" data-p="" aria-pressed="true" title="Todas as plataformas">
+          <span>Todos</span><span class="chip-n" data-count="all">—</span>
+        </button>
+        <button type="button" class="chip" data-p="PS3" aria-pressed="false" title="Filtrar por PS3">
+          <span class="dot dot-ps3" aria-hidden="true"></span><span>PS3</span><span class="chip-n" data-count="PS3">—</span>
+        </button>
+        <button type="button" class="chip" data-p="PS4" aria-pressed="false" title="Filtrar por PS4">
+          <span class="dot dot-ps4" aria-hidden="true"></span><span>PS4</span><span class="chip-n" data-count="PS4">—</span>
+        </button>
+        <button type="button" class="chip" data-p="PS5" aria-pressed="false" title="Filtrar por PS5">
+          <span class="dot dot-ps5" aria-hidden="true"></span><span>PS5</span><span class="chip-n" data-count="PS5">—</span>
+        </button>
+        <button type="button" class="chip" data-p="PSV" aria-pressed="false" title="Filtrar por PS Vita">
+          <span class="dot dot-psv" aria-hidden="true"></span><span>Vita</span><span class="chip-n" data-count="PSV">—</span>
+        </button>
       </div>
       <label class="sort">
         <span>Ordenar</span>

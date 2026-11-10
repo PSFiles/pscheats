@@ -92,7 +92,8 @@
     $clear.hidden = !S.query;
     $sort.value = S.sort;
     for (const chip of $chips.querySelectorAll('.chip')) {
-      chip.setAttribute('aria-pressed', S.platforms.has(chip.dataset.p) ? 'true' : 'false');
+      const on = chip.dataset.p ? S.platforms.has(chip.dataset.p) : S.platforms.size === 0;
+      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
     }
   }
 
@@ -364,10 +365,15 @@
     });
 
     const platforms = index.platforms || {};
-    const parts = Object.keys(platforms).sort().map((p) => `${p} ${nf.format(platforms[p].games)}`);
+    const counts = { all: S.totals.games };
+    for (const p of Object.keys(platforms)) counts[p] = platforms[p].games;
+    for (const el of $chips.querySelectorAll('[data-count]')) {
+      const n = counts[el.dataset.count];
+      el.textContent = n == null ? '' : nf.format(n);
+    }
+
     $stats.textContent = `${nf.format(S.totals.games)} jogos · ${nf.format(S.totals.cheats)} cheats` +
-      (parts.length ? ` (${parts.join(' · ')})` : '') +
-      (index.generated ? ' · atualizado ' + new Date(index.generated).toLocaleDateString('pt-BR') : '');
+      (index.generated ? ' · ' + new Date(index.generated).toLocaleDateString('pt-BR') : '');
 
     applyFilters();
 
@@ -403,7 +409,9 @@
     const chip = e.target.closest('.chip');
     if (!chip) return;
     const p = chip.dataset.p;
-    if (S.platforms.has(p)) S.platforms.delete(p); else S.platforms.add(p);
+    if (!p) S.platforms.clear();
+    else if (S.platforms.has(p)) S.platforms.delete(p);
+    else S.platforms.add(p);
     syncControls();
     applyFilters();
     writeHash();
