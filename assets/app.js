@@ -9,6 +9,7 @@
   const $form = $('search-form');
   const $clear = $('clear');
   const $chips = $('platforms');
+  const $regions = $('regions');
   const $sort = $('sort');
   const $stats = $('stats');
   const $status = $('status');
@@ -29,6 +30,7 @@
     tokens: [],
     query: '',
     platforms: new Set(),
+    regions: new Set(),
     sort: 'title',
     shown: 0,
     cache: new Map(),
@@ -74,6 +76,9 @@
     if (params.has('p')) {
       S.platforms = new Set(params.get('p').split(',').map((p) => p.trim().toUpperCase()).filter((p) => /^PS(?:[345]|V)$/.test(p)));
     }
+    if (params.has('r')) {
+      S.regions = new Set(params.get('r').split(',').map((r) => r.trim().toUpperCase()).filter((r) => /^(?:EUR|USA|JPN|ASIA|KOR)$/.test(r)));
+    }
     if (params.has('s')) S.sort = params.get('s');
   }
 
@@ -81,6 +86,7 @@
     const params = new URLSearchParams();
     if (S.query) params.set('q', S.query);
     if (S.platforms.size) params.set('p', [...S.platforms].sort().join(','));
+    if (S.regions.size) params.set('r', [...S.regions].sort().join(','));
     if (S.sort !== 'title') params.set('s', S.sort);
     const next = params.toString() ? '#' + params.toString() : location.pathname + location.search;
     if (push) history.replaceState(null, '', next);
@@ -93,6 +99,10 @@
     $sort.value = S.sort;
     for (const chip of $chips.querySelectorAll('.chip')) {
       const on = chip.dataset.p ? S.platforms.has(chip.dataset.p) : S.platforms.size === 0;
+      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    for (const chip of $regions.querySelectorAll('.chip')) {
+      const on = chip.dataset.r ? S.regions.has(chip.dataset.r) : S.regions.size === 0;
       chip.setAttribute('aria-pressed', on ? 'true' : 'false');
     }
   }
@@ -124,6 +134,7 @@
     const out = [];
     for (const game of S.games) {
       if (S.platforms.size && !S.platforms.has(game.p)) continue;
+      if (S.regions.size && !S.regions.has(game.r || '')) continue;
       const names = matchNames(game);
       if (names === null) continue;
       out.push({ game, names });
@@ -148,7 +159,8 @@
 
     $status.textContent = `${nf.format(out.length)} ${out.length === 1 ? 'game' : 'games'}` +
       (S.query ? ` for “${S.query}”` : '') +
-      (S.platforms.size ? ` on ${[...S.platforms].sort().join(', ')}` : '');
+      (S.platforms.size ? ` on ${[...S.platforms].sort().join(', ')}` : '') +
+      (S.regions.size ? ` in ${[...S.regions].sort().join(', ')}` : '');
     renderChunk();
   }
 
@@ -375,6 +387,13 @@
       el.textContent = n == null ? '' : nf.format(n);
     }
 
+    const regionCounts = {};
+    for (const game of S.games) if (game.r) regionCounts[game.r] = (regionCounts[game.r] || 0) + 1;
+    for (const el of $regions.querySelectorAll('[data-rcount]')) {
+      const n = regionCounts[el.dataset.rcount];
+      el.textContent = n == null ? '0' : nf.format(n);
+    }
+
     $stats.textContent = `${nf.format(S.totals.games)} games · ${nf.format(S.totals.cheats)} cheats` +
       (index.generated ? ' · ' + new Date(index.generated).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '');
 
@@ -415,6 +434,18 @@
     if (!p) S.platforms.clear();
     else if (S.platforms.has(p)) S.platforms.delete(p);
     else S.platforms.add(p);
+    syncControls();
+    applyFilters();
+    writeHash();
+  });
+
+  $regions.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip');
+    if (!chip) return;
+    const r = chip.dataset.r;
+    if (!r) S.regions.clear();
+    else if (S.regions.has(r)) S.regions.delete(r);
+    else S.regions.add(r);
     syncControls();
     applyFilters();
     writeHash();

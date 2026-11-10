@@ -128,6 +128,13 @@ h1 { margin: 0; font-size: 1.5rem; letter-spacing: -0.02em; }
   margin-top: 12px;
 }
 
+.filter-rows {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -400,6 +407,7 @@ pre.codes {
   .wrap { width: calc(100% - 1.6rem); }
   .hero { position: static; padding-top: 1.5rem; }
   h1 { font-size: 1.3rem; }
+  .filter-rows { width: 100%; }
   .filters { width: 100%; }
   .sort { width: 100%; }
   .sort select { flex: 1; }
