@@ -202,7 +202,10 @@
     "BLES00256",
     "BLUS30142"
   ],
-  "Gundam Musou 3 JPN.ncl": null,
+  "Gundam Musou 3 JPN.ncl": [
+    "BLJM60300",
+    "BLAS50289"
+  ],
   "Hatsune Miku Project Diva F 2nd.ncl": [
     "BLES02029",
     "BLUS31431",
@@ -380,7 +383,9 @@
     "NPUB30851",
     "NPUB90017"
   ],
-  "Oddworld Strangers Wrath 01.02.ncl": null,
+  "Oddworld Strangers Wrath 01.02.ncl": [
+    "NPEB00645"
+  ],
   "Odin Sphere BLES 01.01.ncl": null,
   "Of Orcs And Men 01.00.ncl": [
     "BLES01586",
@@ -461,7 +466,9 @@
     "NPEB01975",
     "NPUB31495"
   ],
-  "Rune Factory Ocean JPN.ncl": null,
+  "Rune Factory Ocean JPN.ncl": [
+    "BLES01550"
+  ],
   "Rush N' Attack 01.00.ncl": null,
   "Saints Row The Third.ncl": [
     "BLES01342",
@@ -519,7 +526,9 @@
     "BLUS30499",
     "NPUB31779"
   ],
-  "Star Wars The Force Unleashed 2 01.00.ncl": null,
+  "Star Wars The Force Unleashed 2 01.00.ncl": [
+    "BLES00893"
+  ],
   "Stranglehold 01.20.ncl": [
     "BLES00144"
   ],
@@ -550,7 +559,10 @@
     "NPHL00088"
   ],
   "Terminator Salvation 01.00.ncl": null,
-  "The House Of The Dead 3 NPHB 01.00.ncl": null,
+  "The House Of The Dead 3 NPHB 01.00.ncl": [
+    "NPEB00849",
+    "NPHB00453"
+  ],
   "The Legend Of Heroes Trail Of Cold Steel 01.01.ncl": [
     "BLES02209",
     "BLUS31572"
@@ -617,8 +629,12 @@
     "NPJB90154",
     "NPUB90362"
   ],
-  "Yakuza 4 JPN.ncl": null,
-  "Yakuza 4 NTSC PAL.ncl": null,
+  "Yakuza 4 JPN.ncl": [
+    "BLUS30643"
+  ],
+  "Yakuza 4 NTSC PAL.ncl": [
+    "BLUS30643"
+  ],
   "Yakuza Dead Souls 01.00.ncl": [
     "BLES01399",
     "BLUS30826",

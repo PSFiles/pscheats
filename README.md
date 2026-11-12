@@ -82,6 +82,12 @@ Proposals never overwrite an existing non-empty entry, so manual work is safe. T
 map entries that no longer match any file (upstream renamed it) and drops `titles.json` keys that
 no longer belong to a game — pass `--keep-orphans` to keep them.
 
+Game names are cleaned automatically, wherever they come from (file name, `# Title` header or
+`titles.json`): the title id, the version (`v01.00`, `av01.14`, `tv01.28`), a bare region prefix
+(`BLES`, `NPUB`, `NPHB`…) and a trailing region word (`JPN`, `NTSC PAL`) are removed. When a file
+name lists several ids (`Killzone 3 BCES01007 BCUS98234.ncl`) the first one owns the page and the
+others stay searchable.
+
 ## Running the site locally
 
 ```powershell

@@ -58,9 +58,60 @@ const SOURCES = [
 const SERIAL_RE = /\b([A-Z]{4}-?\d{5,6})\b/;
 const VERSION_RE = /\b(?:av|v)?(\d{2}\.\d{2})\b/;
 
+// Region prefixes without digits, left behind when a name carries only the
+// prefix ("Medal Of Honor Airborn BLES", "The House Of The Dead 3 NPHB").
+const REGION_PREFIX = 'BLES|BLUS|BLJM|BLJS|BLJX|BLAS|BLKS|BLUD|BLED|BCAS|BCJS|BCKS|BCES|BCUS'
+  + '|NPEB|NPUB|NPJB|NPEA|NPUA|NPJA|NPEL|NPED|NPEG|NPHB|NPHL|NPHA|NPJH|NPJG'
+  + '|SLES|SLUS|SLPS|SLPM|SCPS|SLKA|MRTC|PCSA|PCSB|PCSE|PCSG|PCSH|CUSA|PPSA';
+// Region words only make sense at the end of a name ("Yakuza 4 NTSC PAL").
+const REGION_WORD = 'JPN|NTSC|PAL|JG';
+
+const SERIAL_G = new RegExp(SERIAL_RE.source, 'g');
+const VERSION_AV_G = /\b(?:av|tv)\d{2}\.\d{2}\b/gi;
+const VERSION_V_G = /\bv\d{2}\.\d{2}\b/gi;
+const VERSION_BARE_G = /\b\d{2}\.\d{2}\b/g;
+const REGION_PREFIX_G = new RegExp(`\\b(?:${REGION_PREFIX})\\b`, 'gi');
+const REGION_WORD_END = new RegExp(`\\s+(?:${REGION_WORD})$`, 'i');
+
 function serialOf(text) {
   const m = String(text || '').toUpperCase().match(SERIAL_RE);
   return m ? m[1].replace(/-/g, '') : '';
+}
+
+/** Every id in a file name: "Killzone 3 BCES01007 BCUS98234.ncl" -> both. */
+function serialsOf(text) {
+  const found = String(text || '').toUpperCase().match(SERIAL_G) || [];
+  return [...new Set(found.map((s) => s.replace(/-/g, '')))];
+}
+
+/**
+ * Strips everything that is release metadata rather than game name: the title id
+ * (BLES01234), the version (v01.00 / 01.00), a bare region prefix (NPUB) and a
+ * trailing region word (JPN, NTSC PAL). Used for file names, for the "# Title"
+ * header of .txt files, and for the titles already stored in titles.json.
+ */
+function cleanTitle(text) {
+  let t = String(text || '');
+  t = t.replace(SERIAL_G, ' ');
+  t = t.replace(VERSION_AV_G, ' ');
+  t = t.replace(VERSION_V_G, ' ');
+  t = t.replace(VERSION_BARE_G, ' ');
+  t = t.replace(REGION_PREFIX_G, ' ');
+  t = t.replace(/\s+/g, ' ').trim();
+  let prev;
+  do {
+    prev = t;
+    t = t.replace(REGION_WORD_END, '').trim();
+  } while (t !== prev);
+  // "Dynasty Warriors 7 Xtreme Legends (Chinese Ver. BLAS-50413)" leaves "()"
+  t = t.replace(/\(\s*\)/g, ' ').replace(/\(\s+/g, '(').replace(/\s+\)/g, ')');
+  return t.replace(/\s+/g, ' ').trim();
+}
+
+/** Title derived from an Artemis (.ncl) file name. */
+function titleFromFile(file) {
+  // trailing separators are leftovers of the removed id/version ("Game - BLES01234")
+  return cleanTitle(file.replace(/\.(ncl|txt|json)$/i, '')).replace(/[-_–]+$/g, '').trim();
 }
 
 /** Region letter used by Sony serials: BLES/NPEB = EUR, BLUS/NPUB = USA, BLJM/NPJB = JPN, BLAS/BCAS = ASIA, BLKS = KOR. */
@@ -113,20 +164,6 @@ function loadSerialOverrides(file) {
     else pending++;
   }
   return { map, pending };
-}
-
-/** Title derived from an Artemis (.ncl) file name. */
-function titleFromFile(file) {
-  let base = file.replace(/\.(ncl|txt|json)$/i, '');
-  base = base.replace(SERIAL_RE, ' ');
-  base = base.replace(/\bav\d{2}\.\d{2}\b/gi, ' ');
-  base = base.replace(/\bv\d{2}\.\d{2}\b/gi, ' ');
-  base = base.replace(/\b\d{2}\.\d{2}\b/g, ' ');
-  base = base.replace(/\s+/g, ' ').trim();
-  // "Odin Sphere BLES 01.01.ncl": the version is gone but a bare region prefix
-  // is left behind, which is not part of the title.
-  base = base.replace(/\s+(?:NPEB|NPUB|NPJB|NPEA|NPUA|BLES|BLUS|BLJM|BLAS|BCAS|BLKS|BCES|BCUS)$/i, '');
-  return base.replace(/[-_–]+$/g, '').trim();
 }
 
 /** Deduplication key: name + normalised codes. */
@@ -362,8 +399,12 @@ function main() {
       if (!serial) serial = serialOf(file);
       if (!title) title = titleFromFile(file) || String(serial || '');
 
+      // .txt headers and .json names carry the same release noise as file names
+      // ("# Mass Effect 2 BLUS30650"): clean whatever the parser produced.
+      const cleaned = cleanTitle(title);
+      title = cleaned || String(title || '').trim() || titleFromFile(file) || String(serial || '');
+
       serial = String(serial || '').toUpperCase().replace(/-/g, '').trim();
-      title = String(title || '').replace(/\s+/g, ' ').trim();
       const hadId = !!serial;
 
       // The id this file gets on its own. Before tools/serials.json taught the
@@ -392,10 +433,15 @@ function main() {
       if (!game) {
         game = {
           key, id, platform: src.platform, serial, region: regionOf(serial), title: title || serial || file,
-          sources: [], files: [], cheats: [], seen: new Set(), versions: new Set(), legacy: new Set(),
+          sources: [], files: [], cheats: [], seen: new Set(), versions: new Set(), legacy: new Set(), serials: new Set(),
+          autoTitles: new Set(),
         };
         games.set(key, game);
       }
+      // every id the file name mentions: the extra ones stay searchable even
+      // though the game itself lives under the first id
+      for (const s of serialsOf(file)) game.serials.add(s);
+      game.autoTitles.add(title);
       if (!hadId && legacyId !== game.id) game.legacy.add(legacyId);
       if (title && (!game.title || title.length > game.title.length)) game.title = title;
       if (!game.region) game.region = regionOf(serial);
@@ -461,11 +507,16 @@ function main() {
       if (!c) continue;
       const v = customTitles[c];
       if (typeof v !== 'string') continue;
-      const value = v.trim();
+      // Stored titles are cleaned too: older builds (and hand edits) kept the id
+      // in the name ("Mass Effect 2 BLUS30650"), and that noise should not come
+      // back as a "manual override" over the clean generated title.
+      const value = cleanTitle(v);
       // titles.json also stores the generated title of every game, so a value
-      // equal to the generated one is not an override: keep looking for a real
-      // edit (it may live under an older key, e.g. the synthetic "PS3-x-...").
-      if (!value || value === g.title) continue;
+      // equal to a title the build itself derives is not an override: keep
+      // looking for a real edit (it may live under an older key, e.g. the
+      // synthetic "PS3-x-..."). Without this, a title generated by an older
+      // build would stick forever as if someone had typed it.
+      if (!value || value === g.title || g.autoTitles.has(value)) continue;
       custom = value;
       sourceKey = c;
       break;
@@ -526,6 +577,9 @@ function main() {
     const names = [];
     for (const c of g.cheats) if (!names.includes(c.n)) names.push(c.n);
 
+    // secondary ids ("Killzone 3 BCES01007 BCUS98234") must stay searchable
+    const aliases = [...g.serials].filter((s) => s !== g.serial).sort();
+
     index.games.push({
       i: g.id,
       t: g.title,
@@ -536,6 +590,7 @@ function main() {
       f: g.sources,
       v: [...g.versions].sort(),
       n: names.slice(0, 120),
+      ...(aliases.length ? { a: aliases } : {}),
     });
 
     const detail = {

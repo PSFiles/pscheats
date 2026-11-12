@@ -46,21 +46,41 @@ const DIRS = String(arg('sources', 'PS3-ArtemisDB,PS3-game-cheats')).split(',').
 const SERIAL_RE = /\b([A-Z]{4}-?\d{5,6})\b/;
 const EXT_RE = /\.(ncl|txt|json)$/i;
 
+// Kept in sync with tools/build-site.mjs so both derive the same title.
+const REGION_PREFIX = 'BLES|BLUS|BLJM|BLJS|BLJX|BLAS|BLKS|BLUD|BLED|BCAS|BCJS|BCKS|BCES|BCUS'
+  + '|NPEB|NPUB|NPJB|NPEA|NPUA|NPJA|NPEL|NPED|NPEG|NPHB|NPHL|NPHA|NPJH|NPJG'
+  + '|SLES|SLUS|SLPS|SLPM|SCPS|SLKA|MRTC|PCSA|PCSB|PCSE|PCSG|PCSH|CUSA|PPSA';
+const REGION_WORD = 'JPN|NTSC|PAL|JG';
+
+const SERIAL_G = new RegExp(SERIAL_RE.source, 'g');
+const REGION_PREFIX_G = new RegExp(`\\b(?:${REGION_PREFIX})\\b`, 'gi');
+const REGION_WORD_END = new RegExp(`\\s+(?:${REGION_WORD})$`, 'i');
+
 function serialOf(text) {
   const m = String(text || '').toUpperCase().match(SERIAL_RE);
   return m ? m[1].replace(/-/g, '') : '';
 }
 
+/** Same cleaning rules as build-site.mjs: id, version and region noise out. */
+function cleanTitle(text) {
+  let t = String(text || '');
+  t = t.replace(SERIAL_G, ' ');
+  t = t.replace(/\b(?:av|tv)\d{2}\.\d{2}\b/gi, ' ');
+  t = t.replace(/\bv\d{2}\.\d{2}\b/gi, ' ');
+  t = t.replace(/\b\d{2}\.\d{2}\b/g, ' ');
+  t = t.replace(REGION_PREFIX_G, ' ');
+  t = t.replace(/\s+/g, ' ').trim();
+  let prev;
+  do {
+    prev = t;
+    t = t.replace(REGION_WORD_END, '').trim();
+  } while (t !== prev);
+  return t;
+}
+
 /** Same title extraction used by build-site.mjs, so the keys line up. */
 function titleFromFile(file) {
-  let base = file.replace(EXT_RE, '');
-  base = base.replace(SERIAL_RE, ' ');
-  base = base.replace(/\bav\d{2}\.\d{2}\b/gi, ' ');
-  base = base.replace(/\bv\d{2}\.\d{2}\b/gi, ' ');
-  base = base.replace(/\b\d{2}\.\d{2}\b/g, ' ');
-  base = base.replace(/\s+/g, ' ').trim();
-  base = base.replace(/\s+(?:NPEB|NPUB|NPJB|NPEA|NPUA|BLES|BLUS|BLJM|BLAS|BCAS|BLKS|BCES|BCUS)$/i, '');
-  return base.replace(/[-_–]+$/g, '').trim();
+  return cleanTitle(file.replace(EXT_RE, '')).replace(/[-_–]+$/g, '').trim();
 }
 
 function norm(text) {

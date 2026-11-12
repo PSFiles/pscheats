@@ -704,7 +704,7 @@
       const names = g.n || [];
       return {
         ...g,
-        _hay: `${g.t} ${g.s} ${g.i} ${g.r || ''} ${g.p}`.toLowerCase(),
+        _hay: `${g.t} ${g.s} ${(g.a || []).join(' ')} ${g.i} ${g.r || ''} ${g.p}`.toLowerCase(),
         _names: names.map((n) => n.toLowerCase()),
       };
     });
