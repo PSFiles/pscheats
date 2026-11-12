@@ -3,113 +3,515 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PS Cheats · PS3, PS4, PS5 and PS Vita cheat codes</title>
-<meta name="description" content="Instant search across the whole cheat collection for PS3 (Artemis), PS4 (GoldHEN), PS5 (HEN) and PS Vita (VitaCheat) — by game, serial, region or cheat name.">
+<title>PS Cheats · PlayStation Cheat Codes Database (PS3, PS4, PS5, PS Vita)</title>
+<meta name="description" content="Fast, offline-ready PlayStation cheat code database. Search, browse, copy, and export cheat codes for PS3 (Artemis), PS4 (GoldHEN), PS5 (HEN), and PS Vita (VitaCheat).">
 <meta name="color-scheme" content="dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234f8cff'/%3E%3Ctext x='32' y='43' font-family='system-ui,sans-serif' font-size='30' font-weight='700' text-anchor='middle' fill='%23071018'%3EPS%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#0a0d13">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d4ed8'/%3E%3Cpath d='M16 44V20h8c5.5 0 9 3 9 7.5S29.5 35 24 35h-3v9h-5zm5-14h3c2.7 0 4.2-1.3 4.2-3.5S26.7 23 24 23h-3v7zm16 14c-1.5 0-3-.4-4.2-1.2l2-3.3c.7.5 1.5.8 2.3.8 1.1 0 1.8-.5 1.8-1.2 0-.8-.7-1.1-2.4-1.8-2.6-1.1-3.9-2.4-3.9-4.5 0-2.8 2.2-4.8 5.7-4.8 1.4 0 2.7.3 3.7.9l-1.8 3.3c-.6-.4-1.3-.6-2-.6-1 0-1.6.5-1.6 1.1 0 .7.6 1 2.3 1.7 2.7 1.1 4 2.4 4 4.6 0 2.9-2.2 4.9-5.9 4.9z' fill='%23f1f5f9'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="brand">
-      <span class="logo" aria-hidden="true">PS</span>
-      <div class="brand-text">
-        <h1>PS&nbsp;Cheats</h1>
-        <p class="tagline">Cheat codes for PS3, PS4, PS5 and PS Vita — search by game, serial, region or cheat name.</p>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="app-header">
+  <div class="wrap header-shell">
+    <div class="top-bar">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">
+          <svg class="brand-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="15" x="2" y="6" rx="2.5"/>
+            <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <div class="brand-heading">
+            <h1>PS Cheats</h1>
+            <span class="brand-tag">v2.0</span>
+          </div>
+          <p class="tagline">Unified cheat codes for PS3, PS4, PS5, and PS Vita</p>
+        </div>
+      </div>
+
+      <nav class="top-actions" aria-label="Quick actions">
+        <button type="button" id="btn-guide" class="btn btn-outline" aria-haspopup="dialog" aria-expanded="false" title="Quick Setup Guide & Instructions (G)">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+            <path d="M6 6h10M6 10h10M6 14h6"/>
+          </svg>
+          <span>Setup Guide</span>
+        </button>
+
+        <div class="view-mode-group" role="group" aria-label="List view mode">
+          <button type="button" id="btn-view-cards" class="icon-toggle active" aria-pressed="true" title="Card View (V)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+            </svg>
+            <span class="sr-only">Card View</span>
+          </button>
+          <button type="button" id="btn-view-compact" class="icon-toggle" aria-pressed="false" title="Compact View (V)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="3" x2="21" y1="6" y2="6"/>
+              <line x1="3" x2="21" y1="12" y2="12"/>
+              <line x1="3" x2="21" y1="18" y2="18"/>
+            </svg>
+            <span class="sr-only">Compact View</span>
+          </button>
+        </div>
+
+        <a href="https://github.com/PSFiles/pscheats" class="btn btn-outline btn-icon-only" target="_blank" rel="noopener noreferrer" title="View Source on GitHub" aria-label="GitHub Repository">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Search Section -->
+    <div class="search-box">
+      <form class="search-form" id="search-form" role="search" autocomplete="off" onsubmit="return false;">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input id="q" type="search" name="q" placeholder="Search by game title, serial (e.g. CUSA00123, BLES01017, PCSA00011), cheat name…" aria-label="Search game title, serial, or cheat name" spellcheck="false" autocomplete="off">
+        <button type="button" id="clear" class="clear-btn" hidden aria-label="Clear search query">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+        <kbd class="kbd-hint" aria-hidden="true" title="Press / to focus search">/</kbd>
+      </form>
+
+      <!-- Quick query tags -->
+      <div class="quick-tags" id="quick-tags" role="toolbar" aria-label="Quick search tags">
+        <span class="quick-tags-label">Popular:</span>
+        <button type="button" class="tag-chip" data-query="60 FPS">60 FPS</button>
+        <button type="button" class="tag-chip" data-query="Infinite Health">Infinite Health</button>
+        <button type="button" class="tag-query" data-query="Max Money">Max Money</button>
+        <button type="button" class="tag-query" data-query="Grand Theft Auto">GTA</button>
+        <button type="button" class="tag-query" data-query="God of War">God of War</button>
+        <button type="button" class="tag-query" data-query="Final Fantasy">Final Fantasy</button>
       </div>
     </div>
 
-    <form class="search" id="search-form" role="search" autocomplete="off">
-      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 4a6 6 0 1 0 3.9 10.6l4.3 4.3 1.4-1.4-4.3-4.3A6 6 0 0 0 10 4Zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/></svg>
-      <input id="q" type="search" name="q" placeholder="Search game, serial (BLES01017), region or cheat…" aria-label="Search game, serial, region or cheat" spellcheck="false">
-      <button type="button" id="clear" class="clear" hidden aria-label="Clear search">×</button>
-      <kbd class="hint" aria-hidden="true">/</kbd>
-    </form>
-
-    <div class="controls">
-      <div class="filter-rows">
-        <div class="filters" id="platforms" role="group" aria-label="Filter by platform">
-          <button type="button" class="chip" data-p="" aria-pressed="true" title="All platforms">
-            <span>All</span><span class="chip-n" data-count="all">—</span>
+    <!-- Filters & Sort Controls Bar -->
+    <div class="controls-bar">
+      <div class="filter-groups">
+        <!-- Platform Selector -->
+        <div class="filter-strip" id="platforms" role="group" aria-label="Filter by console platform">
+          <button type="button" class="chip" data-p="" aria-pressed="true" title="Show all platforms">
+            <span>All</span>
+            <span class="chip-count" data-count="all">—</span>
           </button>
-          <button type="button" class="chip" data-p="PS3" aria-pressed="false" title="Filter by PS3">
-            <span class="dot dot-ps3" aria-hidden="true"></span><span>PS3</span><span class="chip-n" data-count="PS3">—</span>
+          <button type="button" class="chip chip-ps3" data-p="PS3" aria-pressed="false" title="PlayStation 3 (Artemis DB & game-cheats)">
+            <span class="dot dot-ps3" aria-hidden="true"></span>
+            <span>PS3</span>
+            <span class="chip-count" data-count="PS3">—</span>
           </button>
-          <button type="button" class="chip" data-p="PS4" aria-pressed="false" title="Filter by PS4">
-            <span class="dot dot-ps4" aria-hidden="true"></span><span>PS4</span><span class="chip-n" data-count="PS4">—</span>
+          <button type="button" class="chip chip-ps4" data-p="PS4" aria-pressed="false" title="PlayStation 4 (GoldHEN Cheat Repository)">
+            <span class="dot dot-ps4" aria-hidden="true"></span>
+            <span>PS4</span>
+            <span class="chip-count" data-count="PS4">—</span>
           </button>
-          <button type="button" class="chip" data-p="PS5" aria-pressed="false" title="Filter by PS5">
-            <span class="dot dot-ps5" aria-hidden="true"></span><span>PS5</span><span class="chip-n" data-count="PS5">—</span>
+          <button type="button" class="chip chip-ps5" data-p="PS5" aria-pressed="false" title="PlayStation 5 (HEN Cheats Collection)">
+            <span class="dot dot-ps5" aria-hidden="true"></span>
+            <span>PS5</span>
+            <span class="chip-count" data-count="PS5">—</span>
           </button>
-          <button type="button" class="chip" data-p="PSV" aria-pressed="false" title="Filter by PS Vita">
-            <span class="dot dot-psv" aria-hidden="true"></span><span>Vita</span><span class="chip-n" data-count="PSV">—</span>
+          <button type="button" class="chip chip-psv" data-p="PSV" aria-pressed="false" title="PlayStation Vita (VitaCheat)">
+            <span class="dot dot-psv" aria-hidden="true"></span>
+            <span>PS Vita</span>
+            <span class="chip-count" data-count="PSV">—</span>
           </button>
         </div>
 
-        <div class="filters" id="regions" role="group" aria-label="Filter by region">
-          <button type="button" class="chip" data-r="" aria-pressed="true" title="Any region">
+        <!-- Region Selector -->
+        <div class="filter-strip" id="regions" role="group" aria-label="Filter by release region">
+          <button type="button" class="chip" data-r="" aria-pressed="true" title="All game regions">
             <span>All regions</span>
           </button>
-          <button type="button" class="chip" data-r="EUR" aria-pressed="false" title="Filter by Europe">
-            <span>EUR</span><span class="chip-n" data-rcount="EUR">—</span>
+          <button type="button" class="chip" data-r="EUR" aria-pressed="false" title="Europe">
+            <span>EUR</span>
+            <span class="chip-count" data-rcount="EUR">—</span>
           </button>
-          <button type="button" class="chip" data-r="USA" aria-pressed="false" title="Filter by the Americas">
-            <span>USA</span><span class="chip-n" data-rcount="USA">—</span>
+          <button type="button" class="chip" data-r="USA" aria-pressed="false" title="Americas / USA">
+            <span>USA</span>
+            <span class="chip-count" data-rcount="USA">—</span>
           </button>
-          <button type="button" class="chip" data-r="JPN" aria-pressed="false" title="Filter by Japan">
-            <span>JPN</span><span class="chip-n" data-rcount="JPN">—</span>
+          <button type="button" class="chip" data-r="JPN" aria-pressed="false" title="Japan">
+            <span>JPN</span>
+            <span class="chip-count" data-rcount="JPN">—</span>
           </button>
-          <button type="button" class="chip" data-r="ASIA" aria-pressed="false" title="Filter by Asia">
-            <span>ASIA</span><span class="chip-n" data-rcount="ASIA">—</span>
+          <button type="button" class="chip" data-r="ASIA" aria-pressed="false" title="Asia">
+            <span>ASIA</span>
+            <span class="chip-count" data-rcount="ASIA">—</span>
           </button>
-          <button type="button" class="chip" data-r="KOR" aria-pressed="false" title="Filter by Korea">
-            <span>KOR</span><span class="chip-n" data-rcount="KOR">—</span>
+          <button type="button" class="chip" data-r="KOR" aria-pressed="false" title="Korea">
+            <span>KOR</span>
+            <span class="chip-count" data-rcount="KOR">—</span>
           </button>
         </div>
       </div>
-      <label class="sort">
-        <span>Sort</span>
-        <select id="sort">
-          <option value="title">Title (A–Z)</option>
-          <option value="cheats">Most cheats</option>
-          <option value="serial">Serial</option>
-        </select>
-      </label>
-      <span id="stats" class="stats" aria-live="polite">loading…</span>
+
+      <!-- Sorting & Stats -->
+      <div class="sort-stats-wrap">
+        <label class="sort-control">
+          <span class="sort-label">Sort:</span>
+          <select id="sort" class="sort-select" aria-label="Sort games list">
+            <option value="title">Title (A–Z)</option>
+            <option value="cheats">Most Cheats</option>
+            <option value="serial">Serial Code</option>
+            <option value="platform">Platform</option>
+          </select>
+        </label>
+        <span id="stats" class="stats-counter" aria-live="polite">Loading database…</span>
+      </div>
     </div>
   </div>
 </header>
 
-<main class="wrap main">
-  <p id="status" class="status" role="status" aria-live="polite"></p>
-  <ul id="list" class="list"></ul>
-  <div id="more" class="more"></div>
+<main id="main" class="wrap main-content">
+  <div class="status-row">
+    <p id="status" class="status-message" role="status" aria-live="polite"></p>
+    <div id="active-filter-summary" class="active-filter-summary" hidden></div>
+  </div>
+
+  <ul id="list" class="games-grid view-cards" aria-label="Matching games list"></ul>
+  <div id="more" class="load-more-container"></div>
 </main>
 
-<footer class="wrap foot">
-  <p>
-    Data from <a href="https://github.com/mohasi/game-cheats" rel="noopener">mohasi/game-cheats</a>,
-    <a href="https://github.com/bucanero/ArtemisPS3/tree/master/docs/codes" rel="noopener">bucanero/ArtemisPS3</a>,
-    <a href="https://github.com/GoldHEN/GoldHEN_Cheat_Repository" rel="noopener">GoldHEN</a> and
-    <a href="https://github.com/TeeKay87/HEN-Cheats-Collection" rel="noopener">TeeKay87/HEN-Cheats-Collection</a>.
-    All credit to the authors of each cheat.
-  </p>
+<footer class="app-footer">
+  <div class="wrap footer-content">
+    <div class="footer-meta">
+      <p>
+        PlayStation Cheats Database · Aggregated from
+        <a href="https://github.com/mohasi/game-cheats" target="_blank" rel="noopener">mohasi/game-cheats</a>,
+        <a href="https://github.com/bucanero/ArtemisPS3/tree/master/docs/codes" target="_blank" rel="noopener">bucanero/ArtemisPS3</a>,
+        <a href="https://github.com/GoldHEN/GoldHEN_Cheat_Repository" target="_blank" rel="noopener">GoldHEN</a>, and
+        <a href="https://github.com/TeeKay87/HEN-Cheats-Collection" target="_blank" rel="noopener">TeeKay87/HEN</a>.
+      </p>
+      <p class="footer-sub">
+        All cheats belong to their respective creators and community contributors. Offline-ready static engine.
+      </p>
+    </div>
+    <div class="footer-shortcuts">
+      <span class="shortcut-tip"><kbd>/</kbd> Focus Search</span>
+      <span class="shortcut-tip"><kbd>V</kbd> Toggle View</span>
+      <span class="shortcut-tip"><kbd>G</kbd> Setup Guide</span>
+      <span class="shortcut-tip"><kbd>Esc</kbd> Close / Clear</span>
+    </div>
+  </div>
 </footer>
 
-<div id="backdrop" class="backdrop" hidden></div>
+<!-- Backdrop overlay for modal / drawer -->
+<div id="backdrop" class="drawer-backdrop" hidden></div>
 
-<aside id="drawer" class="drawer" aria-hidden="true" aria-labelledby="drawer-title">
+<!-- Game Details Inspector Drawer -->
+<aside id="drawer" class="drawer-panel" aria-hidden="true" aria-labelledby="drawer-title" role="dialog" aria-modal="true">
   <header class="drawer-head">
-    <div class="drawer-title-wrap">
-      <h2 id="drawer-title">…</h2>
-      <p id="drawer-meta" class="drawer-meta"></p>
+    <div class="drawer-heading-area">
+      <div class="drawer-top-meta" id="drawer-meta"></div>
+      <h2 id="drawer-title" class="drawer-title">…</h2>
     </div>
-    <button type="button" id="drawer-close" class="icon-btn" aria-label="Close details">×</button>
+    <button type="button" id="drawer-close" class="btn-icon-close" aria-label="Close details inspector (Esc)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
   </header>
-  <div id="drawer-body" class="drawer-body"></div>
+
+  <div class="drawer-toolbar">
+    <div class="drawer-actions">
+      <button type="button" id="btn-download-cheat" class="btn btn-sm btn-primary" title="Export file directly formatted for console">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span id="download-btn-label">Download File</span>
+      </button>
+
+      <button type="button" id="btn-copy-all" class="btn btn-sm btn-outline" title="Copy all cheat codes in current view">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+        </svg>
+        <span>Copy All</span>
+      </button>
+
+      <button type="button" id="btn-share-game" class="btn btn-sm btn-outline" title="Copy direct link to this game">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <span>Share Link</span>
+      </button>
+    </div>
+
+    <!-- Filter cheats inside drawer -->
+    <div class="drawer-search-wrap">
+      <input type="search" id="drawer-search" class="drawer-search-input" placeholder="Filter cheats in this game (e.g. Ammo, HP, 60 FPS)…" aria-label="Filter cheats in this game" autocomplete="off" spellcheck="false">
+    </div>
+  </div>
+
+  <div id="drawer-body" class="drawer-content"></div>
 </aside>
+
+<!-- Setup Guide Dialog (Bilingual pt-BR & en-US) -->
+<dialog id="guide-dialog" class="guide-dialog" aria-labelledby="guide-title">
+  <div class="guide-container">
+    <header class="guide-header">
+      <div class="guide-title-block">
+        <div class="guide-badge-row">
+          <span class="badge badge-accent">PlayStation Guide</span>
+          <div class="lang-switch-group" role="group" aria-label="Language selection / Seleção de idioma">
+            <button type="button" id="lang-en" class="lang-btn active" aria-pressed="true">English (US)</button>
+            <button type="button" id="lang-pt" class="lang-btn" aria-pressed="false">Português (BR)</button>
+          </div>
+        </div>
+        <h2 id="guide-title" class="guide-main-title">How to Install and Use Cheats on Your Console</h2>
+      </div>
+      <button type="button" id="guide-close" class="btn-icon-close" aria-label="Close guide dialog (Esc)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </header>
+
+    <div class="guide-nav-tabs" role="tablist" aria-label="Console Guide Tabs">
+      <button type="button" class="guide-tab active" role="tab" aria-selected="true" aria-controls="guide-ps4" id="tab-ps4">
+        <span class="dot dot-ps4"></span> PS4 (GoldHEN)
+      </button>
+      <button type="button" class="guide-tab" role="tab" aria-selected="false" aria-controls="guide-ps5" id="tab-ps5">
+        <span class="dot dot-ps5"></span> PS5 (HEN)
+      </button>
+      <button type="button" class="guide-tab" role="tab" aria-selected="false" aria-controls="guide-ps3" id="tab-ps3">
+        <span class="dot dot-ps3"></span> PS3 (Artemis)
+      </button>
+      <button type="button" class="guide-tab" role="tab" aria-selected="false" aria-controls="guide-psv" id="tab-psv">
+        <span class="dot dot-psv"></span> PS Vita (VitaCheat)
+      </button>
+    </div>
+
+    <div class="guide-body-scroll">
+      <!-- PS4 GUIDE -->
+      <section id="guide-ps4" class="guide-section active" role="tabpanel" aria-labelledby="tab-ps4">
+        <div class="bilingual-block en-content">
+          <h3>PS4 · GoldHEN Cheat Manager Setup</h3>
+          <p class="guide-lead">GoldHEN reads cheat codes in JSON format matching your game's Title ID (e.g. <code>CUSA00123_01.00.json</code>).</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Direct File Transfer:</strong>
+              Download the <code>.json</code> file using the <strong>Download File</strong> button on the game page.
+            </li>
+            <li>
+              <strong>Destination Path:</strong>
+              Using FTP or PS4-Xplorer, copy the file to:
+              <pre class="path-box">/user/data/GoldHEN/cheats/json/</pre>
+            </li>
+            <li>
+              <strong>In-Game Activation:</strong>
+              Launch the game. Hold the <kbd class="ps-btn">Share</kbd> or <kbd class="ps-btn">Options</kbd> button (configured in GoldHEN settings) or press <kbd class="ps-btn">L3</kbd> + <kbd class="ps-btn">R3</kbd> to bring up the GoldHEN Cheat Menu overlay.
+            </li>
+            <li>
+              Navigate with <kbd class="ps-btn">D-Pad</kbd> and toggle cheats on or off using <kbd class="ps-btn">Cross</kbd>. Return to your game with <kbd class="ps-btn">Circle</kbd>.
+            </li>
+          </ol>
+        </div>
+
+        <div class="bilingual-block pt-content" hidden>
+          <h3>PS4 · Configuração com GoldHEN Cheat Manager</h3>
+          <p class="guide-lead">O GoldHEN lê os códigos de trapaça em formato JSON correspondentes ao Title ID do jogo (ex.: <code>CUSA00123_01.00.json</code>).</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Transferência Direta:</strong>
+              Baixe o arquivo <code>.json</code> pelo botão <strong>Download File</strong> na página do jogo.
+            </li>
+            <li>
+              <strong>Caminho de Destino no Console:</strong>
+              Via cliente FTP ou gerenciador de arquivos (PS4-Xplorer), copie o arquivo para:
+              <pre class="path-box">/user/data/GoldHEN/cheats/json/</pre>
+            </li>
+            <li>
+              <strong>Ativação Durante o Jogo:</strong>
+              Inicie o jogo. Segure o botão <kbd class="ps-btn">Share</kbd> ou <kbd class="ps-btn">Options</kbd> (conforme configurado nas opções do GoldHEN) ou pressione <kbd class="ps-btn">L3</kbd> + <kbd class="ps-btn">R3</kbd> para abrir o menu suspenso do GoldHEN.
+            </li>
+            <li>
+              Navegue com o <kbd class="ps-btn">D-Pad</kbd> e ative/desative os cheats com o botão <kbd class="ps-btn">Cross</kbd>. Pressione <kbd class="ps-btn">Circle</kbd> para voltar ao jogo.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- PS5 GUIDE -->
+      <section id="guide-ps5" class="guide-section" role="tabpanel" aria-labelledby="tab-ps5" hidden>
+        <div class="bilingual-block en-content">
+          <h3>PS5 · HEN & GoldHEN Cheats Setup</h3>
+          <p class="guide-lead">PS5 jailbroken consoles running HEN utilize GoldHEN-compatible cheat JSON structures.</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Download & Placement:</strong>
+              Download the <code>.json</code> cheat file for your game Title ID.
+            </li>
+            <li>
+              <strong>Internal Storage Path:</strong>
+              Transfer via FTP to the console internal directory:
+              <pre class="path-box">/user/data/GoldHEN/cheats/json/  or  /data/GoldHEN/cheats/json/</pre>
+            </li>
+            <li>
+              <strong>Opening the Overlay:</strong>
+              While playing your title, invoke the cheat overlay with your configured shortcut (default <kbd class="ps-btn">Create</kbd> or <kbd class="ps-btn">Options</kbd> hold).
+            </li>
+            <li>
+              Use <kbd class="ps-btn">D-Pad</kbd> Up and Down to browse, toggle with <kbd class="ps-btn">Cross</kbd>, and confirm.
+            </li>
+          </ol>
+        </div>
+
+        <div class="bilingual-block pt-content" hidden>
+          <h3>PS5 · Configuração de Cheats com HEN</h3>
+          <p class="guide-lead">Consoles PlayStation 5 desbloqueados com HEN utilizam o formato compatível JSON do GoldHEN.</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Download e Envio:</strong>
+              Baixe o arquivo de cheats <code>.json</code> correspondente ao Title ID do jogo.
+            </li>
+            <li>
+              <strong>Pasta no Armazenamento Interno:</strong>
+              Envie via FTP para o caminho:
+              <pre class="path-box">/user/data/GoldHEN/cheats/json/  ou  /data/GoldHEN/cheats/json/</pre>
+            </li>
+            <li>
+              <strong>Abertura do Menu em Jogo:</strong>
+              Com o jogo em execução, acione o menu de trapaças pelo atalho configurado (segurar <kbd class="ps-btn">Create</kbd> ou <kbd class="ps-btn">Options</kbd>).
+            </li>
+            <li>
+              Utilize o <kbd class="ps-btn">D-Pad</kbd> para escolher os códigos, confirme com <kbd class="ps-btn">Cross</kbd> e retorne com <kbd class="ps-btn">Circle</kbd>.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- PS3 GUIDE -->
+      <section id="guide-ps3" class="guide-section" role="tabpanel" aria-labelledby="tab-ps3" hidden>
+        <div class="bilingual-block en-content">
+          <h3>PS3 · ArtemisPS3 Homebrew Setup</h3>
+          <p class="guide-lead">ArtemisPS3 uses <code>.ncl</code> database files containing cheat lists and assembly patches.</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Exporting the File:</strong>
+              Click <strong>Download File</strong> to get the formatted <code>.ncl</code> file (named <code>TITLE_SERIAL.ncl</code>).
+            </li>
+            <li>
+              <strong>Copying to PS3 Storage:</strong>
+              Place the <code>.ncl</code> file onto a FAT32 USB drive in <code>/ARTEMIS/</code> or directly into internal HDD:
+              <pre class="path-box">/dev_hdd0/game/ARTEMIS00/USRDIR/user/</pre>
+            </li>
+            <li>
+              <strong>Selecting Cheats:</strong>
+              Launch the <strong>ArtemisPS3</strong> homebrew application on your PS3. Navigate to <em>Cheats</em>, locate your game title, select desired codes with <kbd class="ps-btn">Cross</kbd>, and press <kbd class="ps-btn">Square</kbd> to attach cheats to memory.
+            </li>
+            <li>
+              <strong>Starting Game & Activation:</strong>
+              Artemis returns to the XMB. Launch your game disc or digital package. When ready in-game, press <kbd class="ps-btn">PS Button</kbd> + <kbd class="ps-btn">Start</kbd> to activate the loaded codes.
+            </li>
+          </ol>
+        </div>
+
+        <div class="bilingual-block pt-content" hidden>
+          <h3>PS3 · Configuração com ArtemisPS3</h3>
+          <p class="guide-lead">O ArtemisPS3 utiliza arquivos de banco de dados <code>.ncl</code> contendo códigos de trapaça e patches de memória.</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Exportação do Arquivo:</strong>
+              Clique em <strong>Download File</strong> para obter o arquivo <code>.ncl</code> formatado (nomeado <code>TITULO_SERIAL.ncl</code>).
+            </li>
+            <li>
+              <strong>Cópia para o PS3:</strong>
+              Coloque o arquivo <code>.ncl</code> em um pendrive FAT32 na pasta <code>/ARTEMIS/</code> ou diretamente no HDD interno:
+              <pre class="path-box">/dev_hdd0/game/ARTEMIS00/USRDIR/user/</pre>
+            </li>
+            <li>
+              <strong>Seleção de Trapaças:</strong>
+              Abra o aplicativo <strong>ArtemisPS3</strong> no seu PS3. Vá em <em>Cheats</em>, encontre o jogo, marque os códigos desejados com <kbd class="ps-btn">Cross</kbd> e pressione <kbd class="ps-btn">Square</kbd> para fixar os códigos na memória.
+            </li>
+            <li>
+              <strong>Início do Jogo e Ativação:</strong>
+              O Artemis retorna para a XMB. Inicie o jogo normalmente. Durante o jogo, pressione <kbd class="ps-btn">PS Button</kbd> + <kbd class="ps-btn">Start</kbd> para ativar o mecanismo de trapaças.
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- PS VITA GUIDE -->
+      <section id="guide-psv" class="guide-section" role="tabpanel" aria-labelledby="tab-psv" hidden>
+        <div class="bilingual-block en-content">
+          <h3>PS Vita · VitaCheat Plugin Setup</h3>
+          <p class="guide-lead">VitaCheat reads <code>.psv</code> database files stored in the VitaCheat directory.</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Exporting .psv:</strong>
+              Click <strong>Download File</strong> to obtain the <code>[TITLEID].psv</code> database file.
+            </li>
+            <li>
+              <strong>Destination Path:</strong>
+              Copy the file to your memory card using VitaShell (via USB or FTP):
+              <pre class="path-box">ux0:vitacheat/db/[TITLEID].psv</pre>
+              <em>(e.g., ux0:vitacheat/db/PCSE00001.psv)</em>
+            </li>
+            <li>
+              <strong>In-Game Activation:</strong>
+              Launch your Vita game. Press the VitaCheat activation combo:
+              <kbd class="ps-btn">L1</kbd> + <kbd class="ps-btn">D-Pad Left</kbd> (or <kbd class="ps-btn">L1</kbd> + <kbd class="ps-btn">D-Pad Right</kbd> depending on your vitacheat config).
+            </li>
+            <li>
+              Use <kbd class="ps-btn">D-Pad</kbd> Up and Down to scroll, toggle cheats with <kbd class="ps-btn">Cross</kbd>, and press <kbd class="ps-btn">Circle</kbd> to return to gameplay.
+            </li>
+          </ol>
+        </div>
+
+        <div class="bilingual-block pt-content" hidden>
+          <h3>PS Vita · Configuração com Plugin VitaCheat</h3>
+          <p class="guide-lead">O VitaCheat lê arquivos de trapaça em formato <code>.psv</code> armazenados no cartão de memória.</p>
+          <ol class="guide-steps">
+            <li>
+              <strong>Exportando o .psv:</strong>
+              Clique em <strong>Download File</strong> para obter o arquivo <code>[TITLEID].psv</code>.
+            </li>
+            <li>
+              <strong>Pasta no PS Vita:</strong>
+              Transfira o arquivo para o cartão usando o VitaShell (por USB ou FTP):
+              <pre class="path-box">ux0:vitacheat/db/[TITLEID].psv</pre>
+              <em>(ex.: ux0:vitacheat/db/PCSE00001.psv)</em>
+            </li>
+            <li>
+              <strong>Acionamento Durante a Partida:</strong>
+              Inicie o jogo no PS Vita. Pressione a combinação de ativação:
+              <kbd class="ps-btn">L1</kbd> + <kbd class="ps-btn">D-Pad Esquerda</kbd> (ou <kbd class="ps-btn">L1</kbd> + <kbd class="ps-btn">D-Pad Direita</kbd>).
+            </li>
+            <li>
+              Navegue com o <kbd class="ps-btn">D-Pad</kbd>, ative/desative os códigos com <kbd class="ps-btn">Cross</kbd> e saia do menu pressionando <kbd class="ps-btn">Circle</kbd>.
+            </li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <footer class="guide-footer">
+      <button type="button" id="guide-close-btn" class="btn btn-outline">Close Guide</button>
+    </footer>
+  </div>
+</dialog>
+
+<!-- Notification Toast -->
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
 <script src="assets/app.js" defer></script>
 </body>
