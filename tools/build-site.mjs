@@ -6,8 +6,14 @@
  *   node tools/build-site.mjs                 # builds _site/
  *   node tools/build-site.mjs --out dist      # builds into another folder
  *   node tools/build-site.mjs --serve 8080    # builds and starts a local server
+ *   node tools/build-site.mjs --keep-orphans  # do not drop stale titles.json keys
  *
  * No external dependencies (Node 18+).
+ *
+ * Title ids (the "serial" of a game) are read from the cheat file name. Some
+ * upstream files (mostly bucanero/ArtemisPS3 .ncl) carry no id at all; for those
+ * the build falls back to tools/serials.json, a curated map of file name -> ids.
+ * tools/resolve-serials.mjs proposes the entries, a human confirms them.
  *
  * Output:
  *   <out>/index.html, <out>/assets/*
@@ -31,6 +37,8 @@ function arg(name, fallback) {
 const ROOT = path.resolve(String(arg('root', path.join(HERE, '..'))));
 const OUT = path.resolve(String(arg('out', path.join(ROOT, '_site'))));
 const TITLES_FILE = path.resolve(String(arg('titles', path.join(ROOT, 'titles.json'))));
+const SERIALS_FILE = path.resolve(String(arg('serials', path.join(ROOT, 'tools', 'serials.json'))));
+const KEEP_ORPHANS = !!arg('keep-orphans', false);
 const SERVE = arg('serve', false);
 
 /** Every cheat folder becomes a source. */
@@ -45,12 +53,14 @@ const SOURCES = [
 
 /* ---------------------------------------------------------------- helpers --- */
 
-const SERIAL_RE = /\b([A-Z]{4}\d{5})\b/;
+// Sony ids are 4 letters + 5 digits (BLES01234); a handful of PS3 disc ids carry
+// a 6th digit (BLES001442), so the digit run is 5-6. A separator is tolerated.
+const SERIAL_RE = /\b([A-Z]{4}-?\d{5,6})\b/;
 const VERSION_RE = /\b(?:av|v)?(\d{2}\.\d{2})\b/;
 
 function serialOf(text) {
   const m = String(text || '').toUpperCase().match(SERIAL_RE);
-  return m ? m[1] : '';
+  return m ? m[1].replace(/-/g, '') : '';
 }
 
 /** Region letter used by Sony serials: BLES/NPEB = EUR, BLUS/NPUB = USA, BLJM/NPJB = JPN, BLAS/BCAS = ASIA, BLKS = KOR. */
@@ -81,6 +91,30 @@ function slug(text) {
     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 48);
 }
 
+/**
+ * tools/serials.json: file name (or relative path) -> id, or list of ids where the
+ * first one is the primary id (it decides the game page the cheats land on).
+ * A null/empty value means "not identified yet" and is ignored here.
+ */
+function loadSerialOverrides(file) {
+  const map = new Map();
+  let pending = 0;
+  if (!fs.existsSync(file)) return { map, pending };
+  let raw;
+  try {
+    raw = JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch (e) {
+    console.warn(`warning     : failed to parse ${file}: ${e.message}`);
+    return { map, pending };
+  }
+  for (const [key, value] of Object.entries(raw || {})) {
+    const ids = (Array.isArray(value) ? value : [value]).map((v) => serialOf(v)).filter(Boolean);
+    if (ids.length) map.set(key, [...new Set(ids)]);
+    else pending++;
+  }
+  return { map, pending };
+}
+
 /** Title derived from an Artemis (.ncl) file name. */
 function titleFromFile(file) {
   let base = file.replace(/\.(ncl|txt|json)$/i, '');
@@ -88,7 +122,11 @@ function titleFromFile(file) {
   base = base.replace(/\bav\d{2}\.\d{2}\b/gi, ' ');
   base = base.replace(/\bv\d{2}\.\d{2}\b/gi, ' ');
   base = base.replace(/\b\d{2}\.\d{2}\b/g, ' ');
-  return base.replace(/\s+/g, ' ').replace(/[-_–]+$/g, '').trim();
+  base = base.replace(/\s+/g, ' ').trim();
+  // "Odin Sphere BLES 01.01.ncl": the version is gone but a bare region prefix
+  // is left behind, which is not part of the title.
+  base = base.replace(/\s+(?:NPEB|NPUB|NPJB|NPEA|NPUA|BLES|BLUS|BLJM|BLAS|BCAS|BLKS|BCES|BCUS)$/i, '');
+  return base.replace(/[-_–]+$/g, '').trim();
 }
 
 /** Deduplication key: name + normalised codes. */
@@ -271,8 +309,11 @@ function readSource(src) {
 function main() {
   const started = Date.now();
   const games = new Map();
-  const stats = { files: 0, cheats: 0, skipped: 0, errors: [] };
+  const stats = { files: 0, cheats: 0, skipped: 0, mapped: 0, errors: [] };
   const bySource = {};
+  const serialMap = loadSerialOverrides(SERIALS_FILE);
+  const serialOverrides = serialMap.map;
+  const usedOverrides = new Set();
 
   const collator = new Intl.Collator('en-US', { sensitivity: 'base', numeric: true });
 
@@ -321,23 +362,41 @@ function main() {
       if (!serial) serial = serialOf(file);
       if (!title) title = titleFromFile(file) || String(serial || '');
 
-      serial = String(serial || '').toUpperCase().trim();
+      serial = String(serial || '').toUpperCase().replace(/-/g, '').trim();
       title = String(title || '').replace(/\s+/g, ' ').trim();
+      const hadId = !!serial;
+
+      // The id this file gets on its own. Before tools/serials.json taught the
+      // build the real id, titles.json keyed the game by this synthetic id, so it
+      // is kept as a fallback lookup (manual titles survive the merge).
+      const legacyId = `${src.platform}-x-${slug(title) || slug(file)}`
+        .replace(/[^A-Za-z0-9._-]+/g, '-').slice(0, 120);
+
+      // No id in the file name and none in the content: use the curated map.
+      if (!serial) {
+        const hit = serialOverrides.has(rel) ? rel : (serialOverrides.has(file) ? file : '');
+        if (hit) {
+          serial = serialOverrides.get(hit)[0];
+          usedOverrides.add(hit);
+          stats.mapped++;
+        }
+      }
 
       const key = serial
         ? `${src.platform}|${serial}`
         : `${src.platform}|~${slug(title) || slug(file)}`;
-      const id = (serial ? `${src.platform}-${serial}` : `${src.platform}-x-${slug(title) || slug(file)}`)
+      const id = (serial ? `${src.platform}-${serial}` : legacyId)
         .replace(/[^A-Za-z0-9._-]+/g, '-').slice(0, 120);
 
       let game = games.get(key);
       if (!game) {
         game = {
           key, id, platform: src.platform, serial, region: regionOf(serial), title: title || serial || file,
-          sources: [], files: [], cheats: [], seen: new Set(), versions: new Set(),
+          sources: [], files: [], cheats: [], seen: new Set(), versions: new Set(), legacy: new Set(),
         };
         games.set(key, game);
       }
+      if (!hadId && legacyId !== game.id) game.legacy.add(legacyId);
       if (title && (!game.title || title.length > game.title.length)) game.title = title;
       if (!game.region) game.region = regionOf(serial);
       if (!game.sources.includes(src.id)) game.sources.push(src.id);
@@ -384,18 +443,62 @@ function main() {
 
   const nextTitles = { ...customTitles };
   let manualCount = 0;
+  let rehomed = 0;
 
   for (const g of games.values()) {
-    // Check manual override by ID ("PS4-CUSA00123"), Serial ("CUSA00123"), Key ("PS4|CUSA00123"), or case-insensitive
-    const custom = customTitles[g.id]
-      || (g.serial && (customTitles[g.serial] || customTitles[g.serial.toUpperCase()] || customTitles[g.serial.toLowerCase()]))
-      || customTitles[g.key];
+    // Manual override by ID ("PS4-CUSA00123"), Serial ("CUSA00123"), Key
+    // ("PS4|CUSA00123") or by the synthetic id the game had before the serial
+    // was known ("PS3-x-bayonetta").
+    const candidates = [
+      g.id,
+      g.serial, g.serial && g.serial.toUpperCase(), g.serial && g.serial.toLowerCase(),
+      g.key,
+      ...g.legacy,
+    ];
+    let custom = '';
+    let sourceKey = '';
+    for (const c of candidates) {
+      if (!c) continue;
+      const v = customTitles[c];
+      if (typeof v !== 'string') continue;
+      const value = v.trim();
+      // titles.json also stores the generated title of every game, so a value
+      // equal to the generated one is not an override: keep looking for a real
+      // edit (it may live under an older key, e.g. the synthetic "PS3-x-...").
+      if (!value || value === g.title) continue;
+      custom = value;
+      sourceKey = c;
+      break;
+    }
+    if (custom) {
+      if (g.title !== custom) manualCount++;
+      if (sourceKey !== g.id) rehomed++;
+      g.title = custom;
+    }
+    // Always stored under the canonical id, so a title that used to live under a
+    // synthetic key is re-homed here and the stale key is dropped just below.
+    nextTitles[g.id] = g.title;
+  }
 
-    if (custom && typeof custom === 'string' && custom.trim()) {
-      if (g.title !== custom.trim()) manualCount++;
-      g.title = custom.trim();
-    } else {
-      nextTitles[g.id] = g.title;
+  // Drop keys that match no game any more (upstream file renamed, or the file
+  // merged into a game that now has a real id). Without this they pile up
+  // forever, since the file is only ever merged with - never rebuilt.
+  const validKeys = new Set();
+  for (const g of games.values()) {
+    validKeys.add(g.id);
+    validKeys.add(g.key);
+    if (g.serial) {
+      validKeys.add(g.serial);
+      validKeys.add(g.serial.toUpperCase());
+      validKeys.add(g.serial.toLowerCase());
+    }
+  }
+  const orphans = [];
+  if (!KEEP_ORPHANS) {
+    for (const k of Object.keys(nextTitles)) {
+      if (validKeys.has(k)) continue;
+      orphans.push(k);
+      delete nextTitles[k];
     }
   }
 
@@ -459,10 +562,12 @@ function main() {
 
   const indexBytes = fs.statSync(path.join(OUT, 'data', 'index.json')).size;
   const secs = ((Date.now() - started) / 1000).toFixed(1);
+  const staleOverrides = [...serialOverrides.keys()].filter((k) => !usedOverrides.has(k));
   console.log(`sources     : ${SOURCES.map((s) => `${s.id}=${bySource[s.id].files}`).join('  ')}`);
   console.log(`files       : ${stats.files} read, ${stats.skipped} without cheats`);
   console.log(`games       : ${list.length}`);
-  console.log(`titles      : ${Object.keys(sortedTitles).length} in ${path.basename(TITLES_FILE)} (${manualCount} manual overrides applied)`);
+  console.log(`titles      : ${Object.keys(sortedTitles).length} in ${path.basename(TITLES_FILE)} (${manualCount} manual, ${rehomed} re-homed, ${orphans.length} orphan keys dropped)`);
+  console.log(`serial map  : ${serialOverrides.size} entries, ${stats.mapped} applied, ${serialMap.pending} pending, ${staleOverrides.length} unused`);
   console.log(`cheats      : ${stats.cheats}`);
   for (const [p, v] of Object.entries(index.platforms)) {
     console.log(`  ${p}        : ${v.games} games, ${v.cheats} cheats`);
@@ -473,6 +578,16 @@ function main() {
   if (stats.errors.length) {
     console.log(`\nwarnings (${stats.errors.length}):`);
     for (const e of stats.errors.slice(0, 15)) console.log('  - ' + e);
+  }
+  if (orphans.length) {
+    console.log(`\norphan titles dropped (${orphans.length}) - no file matches them any more:`);
+    for (const k of orphans.slice(0, 10)) console.log('  - ' + k);
+    if (orphans.length > 10) console.log(`  ... and ${orphans.length - 10} more`);
+  }
+  if (staleOverrides.length) {
+    console.log(`\nunused tools/serials.json entries (${staleOverrides.length}) - file name changed upstream?`);
+    for (const k of staleOverrides.slice(0, 10)) console.log('  - ' + k);
+    if (staleOverrides.length > 10) console.log(`  ... and ${staleOverrides.length - 10} more`);
   }
 
   if (SERVE) serve(OUT, Number(SERVE) || 8080);

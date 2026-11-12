@@ -22,6 +22,8 @@ credited in the author field of its own file.
 - `index.html`, `assets/` — the site (HTML/CSS/JS, no dependencies, no server-side code).
 - `tools/build-site.mjs` — reads the folders above and generates the search index plus one JSON
   file per game.
+- `tools/serials.json` — curated map for the few cheat files that carry no title id in the name;
+  `tools/resolve-serials.mjs` proposes its entries.
 - `.github/workflows/pages.yml` — on every push to `main`, builds the site and deploys it to
   GitHub Pages.
 
@@ -50,6 +52,35 @@ The updater lives **outside** this repository, in the project folder
 
 The script keeps its state in `pscheats.sync` (next to the `.ps1`): when no upstream commit has
 changed, the run finishes in seconds.
+
+## Files without a title id
+
+Most cheat files name the game id (`Bayonetta BLES00599 01.00.ncl`), but some upstream ArtemisPS3
+files do not (`Bayonetta.ncl`). Without an id those cheats cannot be grouped with the game they
+belong to, so `tools/serials.json` maps the file name to the id(s) it covers:
+
+```json
+{
+  "Bayonetta.ncl": ["BLES00599", "BLUS30367"],
+  "Daytona USA 01.00.ncl": null
+}
+```
+
+The first id is the primary one — it decides which game page the cheats land on (Europe and
+America are preferred). `null` means "not identified yet": the build ignores it and keeps the
+game as a standalone entry.
+
+```powershell
+# propose entries by matching the title against files that do carry an id
+node tools/resolve-serials.mjs --suggest
+
+# report only, writes nothing
+node tools/resolve-serials.mjs --dry-run
+```
+
+Proposals never overwrite an existing non-empty entry, so manual work is safe. The build prints
+map entries that no longer match any file (upstream renamed it) and drops `titles.json` keys that
+no longer belong to a game — pass `--keep-orphans` to keep them.
 
 ## Running the site locally
 
