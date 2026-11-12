@@ -638,43 +638,56 @@ h1 {
 }
 
 /* 2. Compact View Mode (Dense List) */
+/* Row metrics follow the single-column list used before the card grid
+   (0.85rem/1rem padding, 12px radius, 15px title, badges under the title). */
 .games-grid.view-compact {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.55rem;
 }
 
 .games-grid.view-compact .game-card {
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr auto;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px 14px;
-  border-radius: var(--radius-md);
-  contain-intrinsic-size: 0 46px;
+  gap: 0.3rem 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  min-height: 0;
+  height: auto;
+  contain-intrinsic-size: 0 74px;
 }
 
 .games-grid.view-compact .card-top {
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-  min-width: 0;
+  display: contents;
 }
 
 .games-grid.view-compact .card-title {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
   height: auto;
   min-height: unset;
   max-height: unset;
   display: block;
-  font-size: 0.88rem;
+  font-size: 0.9375rem;
+  line-height: 1.55;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  flex: 1;
+}
+
+.games-grid.view-compact .card-count-badge {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  justify-self: end;
 }
 
 .games-grid.view-compact .card-badge-row {
+  grid-column: 1 / -1;
+  grid-row: 2;
   margin-top: 0;
-  flex-shrink: 0;
 }
 
 .games-grid.view-compact .card-names-preview {
