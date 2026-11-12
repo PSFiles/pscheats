@@ -349,7 +349,7 @@
         onclick: () => openGame(game.i),
       },
         el('div', { class: 'card-top' },
-          el('div', { class: 'card-title', text: title }),
+          el('div', { class: 'card-title', title, text: title }),
           el('span', { class: 'card-count-badge', text: cheatCount })
         ),
         el('div', { class: 'card-badge-row' }, badges),

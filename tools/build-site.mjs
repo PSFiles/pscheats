@@ -30,6 +30,7 @@ function arg(name, fallback) {
 
 const ROOT = path.resolve(String(arg('root', path.join(HERE, '..'))));
 const OUT = path.resolve(String(arg('out', path.join(ROOT, '_site'))));
+const TITLES_FILE = path.resolve(String(arg('titles', path.join(ROOT, 'titles.json'))));
 const SERVE = arg('serve', false);
 
 /** Every cheat folder becomes a source. */
@@ -370,6 +371,41 @@ function main() {
     }
   }
 
+  /* ---------------------------------------------------------------- titles --- */
+
+  let customTitles = {};
+  if (fs.existsSync(TITLES_FILE)) {
+    try {
+      customTitles = JSON.parse(fs.readFileSync(TITLES_FILE, 'utf8'));
+    } catch (e) {
+      console.warn(`warning     : failed to parse ${TITLES_FILE}: ${e.message}`);
+    }
+  }
+
+  const nextTitles = { ...customTitles };
+  let manualCount = 0;
+
+  for (const g of games.values()) {
+    // Check manual override by ID ("PS4-CUSA00123"), Serial ("CUSA00123"), Key ("PS4|CUSA00123"), or case-insensitive
+    const custom = customTitles[g.id]
+      || (g.serial && (customTitles[g.serial] || customTitles[g.serial.toUpperCase()] || customTitles[g.serial.toLowerCase()]))
+      || customTitles[g.key];
+
+    if (custom && typeof custom === 'string' && custom.trim()) {
+      if (g.title !== custom.trim()) manualCount++;
+      g.title = custom.trim();
+    } else {
+      nextTitles[g.id] = g.title;
+    }
+  }
+
+  // Save/sync titles.json alphabetically so it is easy to browse, search, and edit
+  const sortedTitles = {};
+  for (const k of Object.keys(nextTitles).sort((a, b) => collator.compare(a, b))) {
+    sortedTitles[k] = nextTitles[k];
+  }
+  fs.writeFileSync(TITLES_FILE, JSON.stringify(sortedTitles, null, 2) + '\n', 'utf8');
+
   /* ---------------------------------------------------------------- output --- */
 
   const gDir = path.join(OUT, 'data', 'g');
@@ -419,12 +455,14 @@ function main() {
   }
   const assets = path.join(ROOT, 'assets');
   if (fs.existsSync(assets)) fs.cpSync(assets, path.join(OUT, 'assets'), { recursive: true });
+  if (fs.existsSync(TITLES_FILE)) fs.copyFileSync(TITLES_FILE, path.join(OUT, 'titles.json'));
 
   const indexBytes = fs.statSync(path.join(OUT, 'data', 'index.json')).size;
   const secs = ((Date.now() - started) / 1000).toFixed(1);
   console.log(`sources     : ${SOURCES.map((s) => `${s.id}=${bySource[s.id].files}`).join('  ')}`);
   console.log(`files       : ${stats.files} read, ${stats.skipped} without cheats`);
   console.log(`games       : ${list.length}`);
+  console.log(`titles      : ${Object.keys(sortedTitles).length} in ${path.basename(TITLES_FILE)} (${manualCount} manual overrides applied)`);
   console.log(`cheats      : ${stats.cheats}`);
   for (const [p, v] of Object.entries(index.platforms)) {
     console.log(`  ${p}        : ${v.games} games, ${v.cheats} cheats`);
