@@ -18,7 +18,7 @@
  * Output:
  *   <out>/index.html, <out>/assets/*
  *   <out>/data/index.json        search index (games + cheat names)
- *   <out>/data/g/<id>.json       per-game detail (full codes)
+ *   <out>/data/<platform>.jsonl  one game per line, full codes (ps3, ps4, ps5, psv)
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -49,6 +49,8 @@ const SOURCES = [
   { id: 'hen5', dir: 'PS5-HEN', ext: '.json', platform: 'PS5', label: 'PS5 · HEN Collection', repo: 'TeeKay87/HEN-Cheats-Collection', base: 'cheats/json' },
   // local source: there is no upstream repository to sync from (maintained by hand)
   { id: 'vitacheats', dir: 'PSV-vitacheats', ext: '.psv', platform: 'PSV', label: 'PS Vita · VitaCheat', repo: 'PSFiles/pscheats', base: 'PSV-vitacheats', local: true },
+  // hand-written PS3 codes that are not in any upstream collection
+  { id: 'custom', dir: 'Custom', ext: '.ncl', platform: 'PS3', label: 'PS3 · Custom', repo: 'PSFiles/pscheats', base: 'Custom', local: true },
 ];
 
 /* ---------------------------------------------------------------- helpers --- */
@@ -562,9 +564,13 @@ function main() {
 
   /* ---------------------------------------------------------------- output --- */
 
-  const gDir = path.join(OUT, 'data', 'g');
+  const dataDir = path.join(OUT, 'data');
   fs.rmSync(OUT, { recursive: true, force: true });
-  fs.mkdirSync(gDir, { recursive: true });
+  fs.mkdirSync(dataDir, { recursive: true });
+
+  // One JSONL per platform instead of one file per game: ~7.900 tiny requests
+  // become 4 files, and the site reads a single line per game (see app.js).
+  const byPlatform = {};
 
   const list = [...games.values()].sort((a, b) => collator.compare(a.title, b.title));
   const index = { v: 1, generated: new Date().toISOString(), totals: { games: list.length, cheats: stats.cheats }, platforms: {}, games: [] };
@@ -602,7 +608,14 @@ function main() {
       files: g.files,
       cheats: g.cheats,
     };
-    fs.writeFileSync(path.join(gDir, `${g.id}.json`), JSON.stringify(detail));
+    (byPlatform[g.platform] || (byPlatform[g.platform] = [])).push(JSON.stringify(detail));
+  }
+
+  let detailBytes = 0;
+  for (const [platform, rows] of Object.entries(byPlatform)) {
+    const body = rows.join('\n') + '\n';
+    fs.writeFileSync(path.join(dataDir, `${platform.toLowerCase()}.jsonl`), body);
+    detailBytes += Buffer.byteLength(body);
   }
 
   fs.writeFileSync(path.join(OUT, 'data', 'index.json'), JSON.stringify(index));
@@ -628,6 +641,7 @@ function main() {
     console.log(`  ${p}        : ${v.games} games, ${v.cheats} cheats`);
   }
   console.log(`index       : ${(indexBytes / 1048576).toFixed(2)} MiB`);
+  console.log(`details     : ${Object.keys(byPlatform).length} jsonl, ${(detailBytes / 1048576).toFixed(1)} MiB`);
   console.log(`output      : ${OUT}`);
   console.log(`time        : ${secs}s`);
   if (stats.errors.length) {

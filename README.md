@@ -14,14 +14,16 @@ Site: <https://psfiles.github.io/pscheats/>
 | `PS4-GoldHEN/` | `CUSAxxxxx_01.00.json` | [GoldHEN/GoldHEN_Cheat_Repository](https://github.com/GoldHEN/GoldHEN_Cheat_Repository) (`json/`) |
 | `PS5-HEN/` | `CUSAxxxxx_01.00_hash.json` | [TeeKay87/HEN-Cheats-Collection](https://github.com/TeeKay87/HEN-Cheats-Collection) (`cheats/json/`) |
 | `PSV-vitacheats/` | `PCSAxxxxx.psv` (VitaCheat) | **local** folder — there is no upstream repository to sync from |
+| `Custom/` | `Title SERIAL.ncl` (Artemis) | **local** folder — hand-written codes that exist in no upstream collection |
 
-The first four folders mirror the upstream repositories; `PSV-vitacheats/` is maintained by hand
-(the sync script never writes to it — it is only indexed by the site). Each cheat's author is
-credited in the author field of its own file.
+The first four folders mirror the upstream repositories; `PSV-vitacheats/` and `Custom/` are
+maintained by hand (the sync script never writes to them — they are only indexed by the site).
+Each cheat's author is credited in the author field of its own file.
 
 - `index.html`, `assets/` — the site (HTML/CSS/JS, no dependencies, no server-side code).
-- `tools/build-site.mjs` — reads the folders above and generates the search index plus one JSON
-  file per game.
+- `tools/build-site.mjs` — reads the folders above and generates the search index plus one JSONL
+  per platform (`data/ps3.jsonl`, `data/ps4.jsonl`, `data/ps5.jsonl`, `data/psv.jsonl`, one game
+  per line with its full codes).
 - `tools/serials.json` — curated map for the few cheat files that carry no title id in the name;
   `tools/resolve-serials.mjs` proposes its entries.
 - `.github/workflows/pages.yml` — on every push to `main`, builds the site and deploys it to

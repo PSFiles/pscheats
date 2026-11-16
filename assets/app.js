@@ -369,7 +369,37 @@
       goldhen: 'GoldHEN',
       hen5: 'HEN',
       vitacheats: 'VitaCheat',
+      custom: 'Custom',
     })[id] || id;
+  }
+
+  /* ------------------------------------------------------- Platform details -- */
+
+  // One JSONL per platform (data/ps3.jsonl, ...): the whole file is fetched once,
+  // the line offset of each game is indexed, and only the opened game is parsed.
+  const platformFiles = new Map();
+
+  async function loadPlatformFile(platform) {
+    let entry = platformFiles.get(platform);
+    if (entry) return entry;
+    const res = await fetch(`data/${platform.toLowerCase()}.jsonl`, { cache: 'force-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const lines = (await res.text()).split('\n');
+    const byId = new Map();
+    for (let i = 0; i < lines.length; i++) {
+      const m = lines[i].match(/^\{"id":"([^"]+)"/);
+      if (m) byId.set(m[1], i);
+    }
+    entry = { lines, byId };
+    platformFiles.set(platform, entry);
+    return entry;
+  }
+
+  async function loadDetail(id, platform) {
+    const entry = await loadPlatformFile(platform);
+    const at = entry.byId.get(id);
+    if (at === undefined) throw new Error('game not found');
+    return JSON.parse(entry.lines[at]);
   }
 
   /* ---------------------------------------------------- Drawer / Detail View -- */
@@ -405,9 +435,7 @@
     try {
       let detail = State.cache.get(id);
       if (!detail) {
-        const res = await fetch(`data/g/${encodeURIComponent(id)}.json`, { cache: 'force-cache' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        detail = await res.json();
+        detail = await loadDetail(id, game ? game.p : id.split('-')[0]);
         State.cache.set(id, detail);
       }
       if (State.activeGame !== id) return;
