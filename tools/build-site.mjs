@@ -46,7 +46,7 @@ const SOURCES = [
   { id: 'game-cheats', dir: 'PS3-game-cheats', ext: '.txt', platform: 'PS3', label: 'PS3 · game-cheats', repo: 'mohasi/game-cheats', base: 'compiled' },
   { id: 'artemis', dir: 'PS3-ArtemisDB', ext: '.ncl', platform: 'PS3', label: 'PS3 · ArtemisDB', repo: 'bucanero/ArtemisPS3', base: 'docs/codes' },
   { id: 'goldhen', dir: 'PS4-GoldHEN', ext: '.json', platform: 'PS4', label: 'PS4 · GoldHEN', repo: 'GoldHEN/GoldHEN_Cheat_Repository', base: 'json' },
-  { id: 'hen5', dir: 'PS5-HEN', ext: '.json', platform: 'PS5', label: 'PS5 · HEN Collection', repo: 'TeeKay87/HEN-Cheats-Collection', base: 'cheats/json' },
+  { id: 'hen5', dir: 'PS5-HEN', ext: '.json', platform: 'PS5', label: 'PS4/PS5 · HEN Collection', repo: 'TeeKay87/HEN-Cheats-Collection', base: 'cheats/json' },
   // local source: there is no upstream repository to sync from (maintained by hand)
   { id: 'vitacheats', dir: 'PSV-vitacheats', ext: '.psv', platform: 'PSV', label: 'PS Vita · VitaCheat', repo: 'PSFiles/pscheats', base: 'PSV-vitacheats', local: true },
   // hand-written PS3 codes that are not in any upstream collection
@@ -87,6 +87,13 @@ function serialsOf(text) {
 }
 
 /**
+ * Title id prefix -> platform. Some collections mix consoles in one folder
+ * (HEN-Cheats-Collection ships PS4 CUSA and PS5 PPSA files), so the id wins over
+ * the folder. Anything else keeps the platform declared by the source.
+ */
+const PLATFORM_BY_PREFIX = { CUSA: 'PS4', PPSA: 'PS5' };
+
+/**
  * Strips everything that is release metadata rather than game name: the title id
  * (BLES01234), the version (v01.00 / 01.00), a bare region prefix (NPUB) and a
  * trailing region word (JPN, NTSC PAL). Used for file names, for the "# Title"
@@ -116,8 +123,7 @@ function titleFromFile(file) {
   return cleanTitle(file.replace(/\.(ncl|txt|json)$/i, '')).replace(/[-_–]+$/g, '').trim();
 }
 
-/** Region letter used by Sony serials: BLES/NPEB = EUR, BLUS/NPUB = USA, BLJM/NPJB = JPN, BLAS/BCAS = ASIA, BLKS = KOR. */
-const REGION_BY_LETTER = { U: 'USA', E: 'EUR', J: 'JPN', A: 'ASIA', K: 'KOR', H: 'ASIA', G: 'JPN', B: 'EUR', C: 'EUR', D: 'EUR', F: 'EUR' };
+/** Region letter used by Sony serials: BLES/NPEB = EUR, BLUS/NPUB = USA, BLJM/NPJB = JPN, BLAS/BCAS = ASIA, BLKS = KOR. */const REGION_BY_LETTER = { U: 'USA', E: 'EUR', J: 'JPN', A: 'ASIA', K: 'KOR', H: 'ASIA', G: 'JPN', B: 'EUR', C: 'EUR', D: 'EUR', F: 'EUR' };
 // Japan disc ids, where the region letter is not in the usual position.
 const JPN_DISC = new Set(['SLPM', 'SLPS', 'SCPS', 'SLKA']);
 // PS Vita ids use their own letters: PCSA is the Americas, not Asia.
@@ -409,12 +415,6 @@ function main() {
       serial = String(serial || '').toUpperCase().replace(/-/g, '').trim();
       const hadId = !!serial;
 
-      // The id this file gets on its own. Before tools/serials.json taught the
-      // build the real id, titles.json keyed the game by this synthetic id, so it
-      // is kept as a fallback lookup (manual titles survive the merge).
-      const legacyId = `${src.platform}-x-${slug(title) || slug(file)}`
-        .replace(/[^A-Za-z0-9._-]+/g, '-').slice(0, 120);
-
       // No id in the file name and none in the content: use the curated map.
       if (!serial) {
         const hit = serialOverrides.has(rel) ? rel : (serialOverrides.has(file) ? file : '');
@@ -425,16 +425,27 @@ function main() {
         }
       }
 
+      // A folder can mix platforms: HEN-Cheats-Collection ships PS4 (CUSA) and
+      // PS5 (PPSA) ids together, and the id is what tells them apart. The folder
+      // only supplies the default.
+      const platform = PLATFORM_BY_PREFIX[serial.slice(0, 4)] || src.platform;
+
+      // The id this file gets on its own. Before tools/serials.json taught the
+      // build the real id, titles.json keyed the game by this synthetic id, so it
+      // is kept as a fallback lookup (manual titles survive the merge).
+      const legacyId = `${platform}-x-${slug(title) || slug(file)}`
+        .replace(/[^A-Za-z0-9._-]+/g, '-').slice(0, 120);
+
       const key = serial
-        ? `${src.platform}|${serial}`
-        : `${src.platform}|~${slug(title) || slug(file)}`;
-      const id = (serial ? `${src.platform}-${serial}` : legacyId)
+        ? `${platform}|${serial}`
+        : `${platform}|~${slug(title) || slug(file)}`;
+      const id = (serial ? `${platform}-${serial}` : legacyId)
         .replace(/[^A-Za-z0-9._-]+/g, '-').slice(0, 120);
 
       let game = games.get(key);
       if (!game) {
         game = {
-          key, id, platform: src.platform, serial, region: regionOf(serial), title: title || serial || file,
+          key, id, platform, serial, region: regionOf(serial), title: title || serial || file,
           sources: [], files: [], cheats: [], seen: new Set(), versions: new Set(), legacy: new Set(), serials: new Set(),
           autoTitles: new Set(),
         };

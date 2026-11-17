@@ -12,13 +12,17 @@ Site: <https://psfiles.github.io/pscheats/>
 | `PS3-game-cheats/` | `SERIAL.txt` | [mohasi/game-cheats](https://github.com/mohasi/game-cheats) (`compiled/`) |
 | `PS3-ArtemisDB/` | `Title SERIAL.ncl` | [bucanero/ArtemisPS3](https://github.com/bucanero/ArtemisPS3/tree/master/docs/codes) (`docs/codes/`) + `.ncl` generated from `PS3-game-cheats/` |
 | `PS4-GoldHEN/` | `CUSAxxxxx_01.00.json` | [GoldHEN/GoldHEN_Cheat_Repository](https://github.com/GoldHEN/GoldHEN_Cheat_Repository) (`json/`) |
-| `PS5-HEN/` | `CUSAxxxxx_01.00_hash.json` | [TeeKay87/HEN-Cheats-Collection](https://github.com/TeeKay87/HEN-Cheats-Collection) (`cheats/json/`) |
+| `PS5-HEN/` | `CUSAxxxxx_01.00_hash.json` (PS4) / `PPSAxxxxx_01.00.json` (PS5) | [TeeKay87/HEN-Cheats-Collection](https://github.com/TeeKay87/HEN-Cheats-Collection) (`cheats/json/`) |
 | `PSV-vitacheats/` | `PCSAxxxxx.psv` (VitaCheat) | **local** folder — there is no upstream repository to sync from |
 | `Custom/` | `Title SERIAL.ncl` (Artemis) | **local** folder — hand-written codes that exist in no upstream collection |
 
 The first four folders mirror the upstream repositories; `PSV-vitacheats/` and `Custom/` are
 maintained by hand (the sync script never writes to them — they are only indexed by the site).
 Each cheat's author is credited in the author field of its own file.
+
+A folder can mix consoles: `PS5-HEN/` carries PS4 (`CUSA`) and PS5 (`PPSA`) cheats, so the title
+id decides the platform and the folder only supplies the default. That is why a CUSA game from
+that collection lands on the PS4 page, merged with the GoldHEN cheats of the same game.
 
 - `index.html`, `assets/` — the site (HTML/CSS/JS, no dependencies, no server-side code).
 - `tools/build-site.mjs` — reads the folders above and generates the search index plus one JSONL
