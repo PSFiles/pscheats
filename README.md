@@ -85,14 +85,19 @@ node tools/resolve-serials.mjs --dry-run
 ```
 
 Proposals never overwrite an existing non-empty entry, so manual work is safe. The build prints
-map entries that no longer match any file (upstream renamed it) and drops `titles.json` keys that
-no longer belong to a game — pass `--keep-orphans` to keep them.
+map entries that no longer match any file (upstream renamed it).
 
-Game names are cleaned automatically, wherever they come from (file name, `# Title` header or
-`titles.json`): the title id, the version (`v01.00`, `av01.14`, `tv01.28`), a bare region prefix
-(`BLES`, `NPUB`, `NPHB`…) and a trailing region word (`JPN`, `NTSC PAL`) are removed. When a file
-name lists several ids (`Killzone 3 BCES01007 BCUS98234.ncl`) the first one owns the page and the
-others stay searchable.
+Names derived from cheat files are cleaned: the title id, the version (`v01.00`, `av01.14`,
+`tv01.28`), a bare region prefix (`BLES`, `NPUB`, `NPHB`…) and a trailing region word (`JPN`,
+`NTSC PAL`) are removed. When a file name lists several ids (`Killzone 3 BCES01007 BCUS98234.ncl`)
+the first one owns the page and the others stay searchable.
+
+## Title names
+
+`titles.json` is the single place to edit game names and is add-only: each build adds ids that are
+not there yet and leaves every existing value untouched, exactly as typed. When a game gets a real
+id, its saved name is copied to the new key; older keys are kept and reported — pass
+`--prune-orphans` to remove them.
 
 ## Running the site locally
 
