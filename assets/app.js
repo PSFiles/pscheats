@@ -33,6 +33,7 @@
   const $drawerClose = $('drawer-close');
   const $drawerSearch = $('drawer-search');
   const $btnDownload = $('btn-download-cheat');
+  const $btnDownloadTxt = $('btn-download-txt');
   const $btnCopyAll = $('btn-copy-all');
   const $btnShare = $('btn-share-game');
   const $downloadLabel = $('download-btn-label');
@@ -373,6 +374,41 @@
     })[id] || id;
   }
 
+  function authorOf(cheat) {
+    return String(cheat.a || '').trim() || 'Community';
+  }
+
+  function nclLine(line) {
+    const s = String(line || '').trim();
+    let m = s.match(/^W(?:8|16|32)\s+([0-9A-Fa-f]{8})\s+([0-9A-Fa-f]+)$/i);
+    if (m) return `0 ${m[1].toUpperCase()} ${m[2].toUpperCase()}`;
+    m = s.match(/^AOB\s+([0-9A-Fa-f]+)\s+([0-9A-Fa-f]+)$/i);
+    if (m) return `B ${m[1].toUpperCase()} ${m[2].toUpperCase()}`;
+    return s;
+  }
+
+  function txtLine(line) {
+    const s = String(line || '').trim();
+    let m = s.match(/^[0-9A-F]\s+([0-9A-Fa-f]{8})\s+([0-9A-Fa-f]+)$/i);
+    if (m) {
+      const value = m[2].toUpperCase();
+      const width = value.length <= 2 ? 'w8' : (value.length <= 4 ? 'w16' : 'w32');
+      return `${width} ${m[1].toUpperCase()} ${value}`;
+    }
+    m = s.match(/^B\s+([0-9A-Fa-f]+)\s+([0-9A-Fa-f]+)$/i);
+    if (m) return `aob ${m[1].toUpperCase()} ${m[2].toUpperCase()}`;
+    return s;
+  }
+
+  function nclBlock(cheat) {
+    return [cheat.n || 'Cheat', '0', authorOf(cheat), ...(cheat.l || []).map(nclLine), '#'].join('\n');
+  }
+
+  function copyCheatText(cheat) {
+    const platform = State.activeDetail && State.activeDetail.platform;
+    return platform === 'PS3' ? nclBlock(cheat) : (cheat.l || []).join('\n');
+  }
+
   /* ------------------------------------------------------- Platform details -- */
 
   // One JSONL per platform (data/ps3.jsonl, ...): the whole file is fetched once,
@@ -448,13 +484,22 @@
   }
 
   function updateDownloadButton(platform) {
-    const ext = platform === 'PS3' ? '.ncl (Artemis)' : (platform === 'PSV' ? '.psv (VitaCheat)' : '.json (GoldHEN)');
-    $downloadLabel.textContent = `Download ${ext}`;
+    const isPs3 = platform === 'PS3';
+    $btnDownloadTxt.hidden = !isPs3;
+    if (isPs3) {
+      $downloadLabel.textContent = 'Download Artemis (.ncl)';
+      $btnDownload.title = 'Export Artemis .ncl file';
+    } else {
+      const ext = platform === 'PSV' ? '.psv (VitaCheat)' : '.json (GoldHEN)';
+      $downloadLabel.textContent = `Download ${ext}`;
+      $btnDownload.title = 'Export file directly formatted for console';
+    }
   }
 
   function renderDetail(detail) {
     $drawerTitle.textContent = detail.title || detail.serial || detail.id;
     $drawerMeta.textContent = '';
+    updateDownloadButton(detail.platform);
 
     $drawerMeta.append(
       badge(detail.platform, detail.platform.toLowerCase()),
@@ -529,13 +574,15 @@
 
   function renderCheatItem(cheat) {
     const codeLines = (cheat.l || []).join('\n');
+    const copiedText = copyCheatText(cheat);
+    const isPs3 = State.activeDetail && State.activeDetail.platform === 'PS3';
 
     const copyBtn = el('button', {
       type: 'button',
       class: 'copy-btn',
-      title: 'Copy this cheat code',
+      title: isPs3 ? 'Copy cheat in Artemis .ncl format' : 'Copy this cheat code',
       onclick: () => {
-        copyText(codeLines, `Copied: ${cheat.n}`);
+        copyText(copiedText, `Copied: ${cheat.n}`);
         copyBtn.textContent = 'Copied!';
         copyBtn.classList.add('done');
         setTimeout(() => {
@@ -571,7 +618,7 @@
 
   /* ------------------------------------------------------- Export / Actions -- */
 
-  function exportCurrentGameFile() {
+  function exportCurrentGameFile(format) {
     const detail = State.activeDetail;
     if (!detail) return;
 
@@ -583,14 +630,22 @@
     let mime = 'text/plain;charset=utf-8';
 
     if (platform === 'PS3') {
-      // Artemis .ncl format
-      filename = `${title.replace(/[^A-Za-z0-9_ -]/g, '').trim()} ${serial}.ncl`;
-      const blocks = [];
-      for (const c of detail.cheats) {
-        const lines = [c.n, c.a || 'Community', ...(c.l || [])];
-        blocks.push(lines.join('\n'));
+      const safeTitle = title.replace(/[^A-Za-z0-9_ -]/g, '').trim();
+      if (format === 'txt') {
+        filename = `${serial}.txt`;
+        const lines = [`# ${title}`, ''];
+        for (const c of detail.cheats) {
+          lines.push(`name: ${c.n || 'Cheat'}`);
+          lines.push(`author: ${authorOf(c)}`);
+          lines.push('mode: once');
+          for (const l of (c.l || [])) lines.push(txtLine(l));
+          lines.push('');
+        }
+        content = lines.join('\n');
+      } else {
+        filename = `${safeTitle} ${serial}.ncl`;
+        content = detail.cheats.map(nclBlock).join('\n') + '\n';
       }
-      content = blocks.join('\n#\n') + '\n#\n';
     } else if (platform === 'PSV') {
       // VitaCheat .psv format
       filename = `${serial}.psv`;
@@ -647,12 +702,15 @@
       ? detail.cheats.filter((c) => c.n.toLowerCase().includes(term) || (c.l && c.l.some((l) => l.toLowerCase().includes(term))))
       : detail.cheats;
 
+    const useNcl = detail.platform === 'PS3';
     const chunks = [];
     for (const c of list) {
-      chunks.push(`// ${c.n}${c.a ? ' (by ' + c.a + ')' : ''}\n` + (c.l || []).join('\n'));
+      chunks.push(useNcl
+        ? nclBlock(c)
+        : `// ${c.n}${c.a ? ' (by ' + c.a + ')' : ''}\n` + (c.l || []).join('\n'));
     }
 
-    copyText(chunks.join('\n\n'), `Copied ${list.length} cheat codes!`);
+    copyText(chunks.join(useNcl ? '\n' : '\n\n'), `Copied ${list.length} cheat codes!`);
   }
 
   function shareGameLink() {
@@ -860,7 +918,8 @@
   // Drawer events
   $drawerClose.addEventListener('click', closeDrawer);
   $backdrop.addEventListener('click', closeDrawer);
-  $btnDownload.addEventListener('click', exportCurrentGameFile);
+  $btnDownload.addEventListener('click', () => exportCurrentGameFile());
+  $btnDownloadTxt.addEventListener('click', () => exportCurrentGameFile('txt'));
   $btnCopyAll.addEventListener('click', copyAllCodes);
   $btnShare.addEventListener('click', shareGameLink);
 

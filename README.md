@@ -99,6 +99,12 @@ not there yet and leaves every existing value untouched, exactly as typed. When 
 id, its saved name is copied to the new key; older keys are kept and reported — pass
 `--prune-orphans` to remove them.
 
+## Exporting PS3 cheats
+
+A PS3 game has two downloads: Artemis `.ncl` and game-cheats `.txt`. On PS3 the per-cheat Copy
+button (and Copy All) produces the Artemis block — name, `0`, author, `0 ADDR VALUE` lines and a
+closing `#` — regardless of which source the code came from.
+
 ## Running the site locally
 
 ```powershell
