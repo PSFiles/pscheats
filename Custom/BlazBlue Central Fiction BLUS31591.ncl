@@ -1,6 +1,6 @@
 P1 Infinite Health (v1.06)
 0
-Lutz
+Fileover
 0 0027DA34 4E800020
 0 0027DA38 812309D8
 0 0027DA3C 8003002C
@@ -33,7 +33,7 @@ Lutz
 #
 CPU Stand (v1.06)
 0
-Lutz
+Fileover
 0 0027D2AC 48000054
 0 00204DCC 60000000
 #
